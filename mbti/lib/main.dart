@@ -19,13 +19,13 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-
   var mbtiStr = "intp";
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage('page_img/m_img.png') ,fit:BoxFit.cover )),
+            image: DecorationImage(
+                image: AssetImage('page_img/m_img.png'), fit: BoxFit.cover)),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,7 +46,10 @@ class _MyAppState extends State<MyApp> {
                 height: 20,
               ),
               Text('MBTI',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold , color: Colors.blue)),
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue)),
               SizedBox(
                 height: 40,
               ),
@@ -72,14 +75,14 @@ class _MyAppState extends State<MyApp> {
                       children: [
                         Text(
                           '테스트 하러가기',
-                          style: TextStyle(fontSize: 20 , fontWeight: FontWeight.w400),
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w400),
                         ),
-                       
                         Icon(Icons.arrow_right),
                       ],
                     )),
               ),
-              Container(height: 300 ,child: result(selectMbti :mbtiStr ))
+              Container(height: 300, child: result(mbtiResult: mbtiStr))
               // Expanded(child: MBTIQuestionPage()),
             ]),
       ),
