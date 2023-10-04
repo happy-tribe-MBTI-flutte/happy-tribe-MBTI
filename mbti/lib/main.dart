@@ -84,8 +84,6 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                 ),
-                // Container(height: 300 ,child: result(selectMbti :mbtiStr ))
-                // Expanded(child: MBTIQuestionPage()),
               ]),
         ),
       );
