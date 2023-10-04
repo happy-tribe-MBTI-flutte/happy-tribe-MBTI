@@ -13,7 +13,7 @@ class resultDrink extends StatelessWidget {
       decoration: BoxDecoration(
        image: DecorationImage(
         fit: BoxFit.cover,
-        image: AssetImage('assests/page_img/r_img2.png'),
+        image: AssetImage('page_img/back.png'),
         ),
       ),
       child: Scaffold(backgroundColor: Colors.transparent),

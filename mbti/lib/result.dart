@@ -15,26 +15,18 @@ class _resultState extends State<result> {
   @override
   Widget build(BuildContext context) {
     String mbtiResult = widget.mbtiResult;
-    print('$mbtiResult');
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          child: resultDrink(),
-        ),
+    return Scaffold(
+      body: FlipCard(
+        fill: Fill
+            .fillBack, // Fill the back side of the card to make in the same size as the front.
+        direction: FlipDirection.HORIZONTAL, // default
+        side: CardSide.FRONT, // The side to initially display.
+        front: resultTravel(),
+        back: resultDrink(),
+        autoFlipDuration: const Duration(
+            seconds:
+                2), // The flip effect will work automatically after the 2 seconds
       ),
     );
   }
 }
-
-
-       // FlipCard(
-            //   fill: Fill
-            //       .fillBack, // Fill the back side of the card to make in the same size as the front.
-            //   direction: FlipDirection.HORIZONTAL, // default
-            //   side: CardSide.FRONT, // The side to initially display.
-            //   front: resultTravel(),
-            //   back: resultDrink(),
-            //   autoFlipDuration: const Duration(
-            //       seconds:
-            //           2), // The flip effect will work automatically after the 2 seconds
-            // ),
