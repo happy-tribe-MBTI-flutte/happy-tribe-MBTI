@@ -74,14 +74,12 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('page_img/m_img.png'),
-            fit: BoxFit.cover,
-          ),
-        ),
+        decoration: BoxDecoration(  image: DecorationImage(
+              image: AssetImage('page_img/m_img.png'),
+              fit: BoxFit.cover,
+            ),),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(50.0),
           child: Container(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
