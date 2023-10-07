@@ -51,6 +51,7 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
         ),
       );
     }
+    double width = MediaQuery.of(context).size.width;
     double imagePosition = progressValue * 100;
     Map<String, dynamic> currentQuestion = questions[currentQuestionIndex];
     Map<String, dynamic> options = currentQuestion['options'];
@@ -80,7 +81,7 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
                   ),
                 ),
                 Positioned(
-                  left: -98 + imagePosition * 3.3,
+                  left: -78 + imagePosition * width * 0.0075,
                   child: Container(
                     margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
                     child: Image.asset(
