@@ -58,7 +58,7 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Color.fromRGBO(246, 215, 255, 1),
+        backgroundColor: Color(0xFFF6D7FF),
         elevation: 0, // 그림자 제거
         title: Column(
           children: [
