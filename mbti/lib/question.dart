@@ -25,7 +25,7 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
   List<Map<String, dynamic>> questions = [];
   int currentQuestionIndex = 0;
   List<String> selectedAnswers = [];
-  double progressValue = 1 / 70;
+  double progressValue = 0.0;
 
   @override
   void initState() {
@@ -51,33 +51,65 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
         ),
       );
     }
-
+    double imagePosition = progressValue * 100;
     Map<String, dynamic> currentQuestion = questions[currentQuestionIndex];
     Map<String, dynamic> options = currentQuestion['options'];
 
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent, // 배경색을 투명하게 설정
+        backgroundColor: Color(0xFFF6D7FF),
         elevation: 0, // 그림자 제거
-        title: SizedBox(
-          height: 40.0,
-          child: LinearProgressIndicator(value: progressValue),
+        title: Column(
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                  child: LinearProgressIndicator(
+                    minHeight: 12,
+                    value: progressValue,
+                    valueColor:
+                        AlwaysStoppedAnimation<Color>(Color(0xFF5D90FF)),
+                    backgroundColor: Color(0xffd6d6d6),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                ),
+                Positioned(
+                  left: -98 + imagePosition * 3.3,
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
+                    child: Image.asset(
+                      'question_img/plane.png', // 이미지 파일 경로에 맞게 수정해야 함
+                      width: 220, // 이미지의 너비
+                      height: 220, // 이미지의 높이
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(30.0),
           child: Text(
             '< ${currentQuestionIndex + 1} / 70 >',
-            style: TextStyle(fontSize: 16.0),
+            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(  image: DecorationImage(
-              image: AssetImage('page_img/m_img.png'),
-              fit: BoxFit.cover,
-            ),),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('page_img/m_img.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(50.0),
           child: Container(
