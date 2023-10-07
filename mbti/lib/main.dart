@@ -6,35 +6,104 @@ import 'resultMusic.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: MyApp(),
+    home: Main(),
   ));
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class Main extends StatefulWidget {
+  const Main({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Main> createState() => _MainState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MainState extends State<Main> {
   @override
+  var mbtiStr = "intp";
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('메인페이지')),
       body: Container(
-        child: Column(children: [
-          Text('dd'),
-          ElevatedButton(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('page_img/m_img.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text(
+            '나와 맞는 여행지에 어울리는 술과 노래는 뭘까?',
+            style: TextStyle(
+                letterSpacing: 1, fontSize: 12, fontWeight: FontWeight.w700),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text('흥의 민족',
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+          SizedBox(
+            height: 20,
+          ),
+          Text('MBTI',
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue)),
+          SizedBox(
+            height: 40,
+          ),
+          SizedBox(
+            height: 50,
+            width: 250,
+            child: ElevatedButton(
+              // style: ElevatedButton.styleFrom(maximumSize: Size(100, 100)),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ResultMusic()),
+                  MaterialPageRoute(builder: (context) => MBTIQuestionPage()),
                 );
               },
-              child: Text('mbti 검사하기 버튼')),
-          result()
-          // Expanded(child: MBTIQuestionPage()),
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '테스트 하러가기',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    Icon(Icons.arrow_right),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 50,
+            width: 250,
+            child: ElevatedButton(
+              // style: ElevatedButton.styleFrom(maximumSize: Size(100, 100)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => result(mbtiResult:  'intp',)),
+                );
+              },
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '결과 예시',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    Icon(Icons.arrow_right),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ]),
       ),
     );

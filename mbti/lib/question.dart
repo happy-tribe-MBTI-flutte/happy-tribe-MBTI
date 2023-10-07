@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mbti/result.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,7 +25,7 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
   List<Map<String, dynamic>> questions = [];
   int currentQuestionIndex = 0;
   List<String> selectedAnswers = [];
-  double progressValue = 1 / 70;
+  double progressValue = 0.0;
 
   @override
   void initState() {
@@ -50,61 +51,142 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
         ),
       );
     }
-
+    double imagePosition = progressValue * 100;
     Map<String, dynamic> currentQuestion = questions[currentQuestionIndex];
     Map<String, dynamic> options = currentQuestion['options'];
 
     return Scaffold(
-      appBar: CustomAppBar(progressValue, currentQuestionIndex),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Color(0xFFF6D7FF),
+        elevation: 0, // 그림자 제거
+        title: Column(
           children: [
-            SizedBox(height: 15.0),
-            Center(
-              child: Text(
-                currentQuestion['question'],
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
+            SizedBox(
+              height: 20,
             ),
-            SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  selectedAnswers.add('a');
-                  _printSelectedAnswer();
-                  _nextQuestion();
-                });
-              },
-              child: Text('a: ${options['a']}'),
-            ),
-            SizedBox(height: 10.0),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  selectedAnswers.add('b');
-                  _printSelectedAnswer();
-                  _nextQuestion();
-                });
-              },
-              child: Text('b: ${options['b']}'),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                  child: LinearProgressIndicator(
+                    minHeight: 12,
+                    value: progressValue,
+                    valueColor:
+                        AlwaysStoppedAnimation<Color>(Color(0xFF5D90FF)),
+                    backgroundColor: Color(0xffd6d6d6),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                ),
+                Positioned(
+                  left: -98 + imagePosition * 3.3,
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
+                    child: Image.asset(
+                      'question_img/plane.png', // 이미지 파일 경로에 맞게 수정해야 함
+                      width: 220, // 이미지의 너비
+                      height: 220, // 이미지의 높이
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(30.0),
+          child: Text(
+            '< ${currentQuestionIndex + 1} / 70 >',
+            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('page_img/m_img.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(50.0),
+          child: Container(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SizedBox(height: 10.0),
+                  Center(
+                    child: Text(
+                      currentQuestion['question'],
+                      style: TextStyle(
+                          fontSize: 18.0, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  SizedBox(height: 20.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      _onOptionSelected('a');
+                    },
+                    child: Text('a: ${options['a']}'),
+                  ),
+                  SizedBox(height: 10.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      _onOptionSelected('b');
+                    },
+                    child: Text('b: ${options['b']}'),
+                  ),
+                  SizedBox(height: 30.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (currentQuestionIndex > 0) {
+                        _goToPreviousPage();
+                      }
+                    },
+                    child: Text('이전 문항으로'),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(double.infinity, 40.0),
+                      // 1번 문항에서는 버튼을 비활성화
+                      // (currentQuestionIndex > 0일 때만 버튼이 활성화되도록)
+                      primary: currentQuestionIndex > 0 ? null : Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
+  }
+
+  void _onOptionSelected(String option) {
+    if (selectedAnswers.length < 70) {
+      setState(() {
+        selectedAnswers.add(option);
+        _printSelectedAnswer();
+        _nextQuestion();
+      });
+      print('Selected Answers: $selectedAnswers');
+      if (currentQuestionIndex == 69) {
+        _calculateMBTI();
+        // 여기에 결과 페이지로 이동하는 코드를 추가
+      }
+    } else {
+      print('All questions answered. Selected Answers: $selectedAnswers');
+    }
   }
 
   void _nextQuestion() {
     if (currentQuestionIndex < questions.length - 1) {
       progressValue += 1 / 70;
       currentQuestionIndex++;
-    } else {
-      // 마지막 문제에서는 선택한 답을 출력
-      print('Selected Answers: $selectedAnswers');
     }
   }
 
@@ -112,32 +194,97 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
     print(
         'Selected Answer for Question ${currentQuestionIndex + 1}: ${selectedAnswers.last}');
   }
-}
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final double progressValue;
-  final int currentQuestionIndex;
-
-  const CustomAppBar(this.progressValue, this.currentQuestionIndex);
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      title: SizedBox(
-        height: 40.0, // 조절 가능한 마진 크기
-        child: LinearProgressIndicator(value: progressValue),
-      ),
-      bottom: PreferredSize(
-        preferredSize: Size.fromHeight(30.0),
-        child: Text(
-          '< ${currentQuestionIndex + 1} / 70 >',
-          style: TextStyle(fontSize: 16.0),
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
+  void _goToPreviousPage() {
+    if (currentQuestionIndex > 0) {
+      setState(() {
+        currentQuestionIndex--;
+        progressValue -= 1 / 70;
+        selectedAnswers.removeLast(); // 이전 페이지로 이동할 때 마지막 선택 값을 삭제
+      });
+    }
   }
 
-  @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  void _calculateMBTI() {
+    if (selectedAnswers.length == 70) {
+      // Calculate MBTI based on the selected answers
+      String mbtiResult = _calculateDimension(
+              'E', 'I', [1, 8, 15, 22, 29, 36, 43, 50, 57, 64]) +
+          _calculateDimension(
+              'S', 'N', [2, 9, 16, 23, 30, 37, 44, 51, 58, 65]) +
+          _calculateDimension('T', 'F', [
+            4,
+            5,
+            11,
+            12,
+            18,
+            19,
+            25,
+            26,
+            32,
+            33,
+            39,
+            40,
+            46,
+            47,
+            53,
+            54,
+            60,
+            61,
+            67,
+            68
+          ]) +
+          _calculateDimension('J', 'P', [
+            6,
+            7,
+            13,
+            14,
+            20,
+            21,
+            27,
+            28,
+            34,
+            35,
+            41,
+            42,
+            48,
+            49,
+            55,
+            56,
+            62,
+            63,
+            69,
+            70
+          ]);
+
+      print('Your MBTI result: $mbtiResult');
+
+      // 이전 페이지를 스택에서 제거하면서 결과 페이지로 이동
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => result(mbtiResult: mbtiResult),
+        ),
+      );
+    } else {
+      print('Please answer all questions before calculating MBTI.');
+    }
+  }
+
+  String _calculateDimension(
+      String dimensionA, String dimensionB, List<int> questions) {
+    int countA = 0;
+    int countB = 0;
+
+    for (int questionIndex in questions) {
+      String selectedAnswer = selectedAnswers[questionIndex - 1].toLowerCase();
+      if (selectedAnswer == 'a') {
+        countA++;
+      } else if (selectedAnswer == 'b') {
+        countB++;
+      }
+    }
+
+    return countA > countB ? dimensionA : dimensionB;
+  }
 }
