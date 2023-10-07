@@ -1,0 +1,114 @@
+{
+  "INFJ": {
+    "title": "열정적인 여행가",
+    "img": "https://post-phinf.pstatic.net/MjAyMDA3MjNfMjY1/MDAxNTk1NDc4NjAzNzYy.ecAr48irVR1-pHjyi8yKbo5Cs9EjtMr30P3Tk1yMZFIg.weCS6EgDPgsJbmSrRXECPkyp7QdRcae-8C62kPPow2kg.JPEG/티라.jpg?type=w800_q75",
+    "explanation": "This is an example image",
+    "Overseas": "산토리니",
+    "Domestic": "완주"
+  },
+  "INFP": {
+    "title": "자유로운 예술가",
+    "img": "https://a.cdn-hotels.com/gdcs/production143/d1112/c4fedab1-4041-4db5-9245-97439472cf2c.jpg",
+    "explanation": "열정적이고 중재적인 성향으로, 아름다운 풍경과 예술이 어울리는 여행지가 좋습니다.",
+    "Overseas": "발리",
+    "Domestic": "지리산"
+  },
+  "INTP": {
+    "title": "사색가",
+    "img": "https://a.cdn-hotels.com/gdcs/production160/d1943/a0fe0b3e-1469-412a-a45e-276f65e77702.jpg",
+    "explanation": "논리적이고 사색적인 유형으로, 학문적인 환경과 철학적인 장소가 어울립니다.",
+    "Overseas": "스웨덴",
+    "Domestic": "담양"
+  },
+  "INTJ": {
+    "title": "지적인 탐구자",
+    "img": "https://www.expedia.co.kr/stories/wp-content/uploads/2022/07/VuWxG7umoNq46KMrDzYt-N3Xc0g.jpeg",
+    "explanation": "지적이고 논리적인 유형으로, 과학적 탐구와 문화적인 경험을 추구합니다.",
+    "Overseas": "런던",
+    "Domestic": "고성"
+  },
+  "ISTJ": {
+    "title": "성실한 탐험가",
+    "img": "https://a.cdn-hotels.com/gdcs/production169/d1465/0153cc66-648b-4d82-b944-a3b5eaec1b94.jpg",
+    "explanation": "성실하고 안정을 추구하는 유형으로, 역사적인 관심을 가진 도시나 자연 경관이 어울립니다.",
+    "Overseas": "교토",
+    "Domestic": "경주"
+  },
+  "ISFJ": {
+    "title": "자연 친구",
+    "img": "https://cdn.imweb.me/upload/S201802265a93c609b030c/f818daceceaba.png",
+    "explanation": "다정하고 자연을 즐기는 유형으로, 자연 경관과 평화로운 여행지가 어울립니다.",
+    "Overseas": "스위스",
+    "Domestic": "전주"
+  },
+  "ISTP": {
+    "title": "모험가",
+    "img": "https://file.intereuro.co.kr/Puzzle/ProductTourImg/ProductTourImg_201753114521_707_53_0.jpeg",
+    "explanation": "모험적이고 스포츠를 즐기는 유형으로, 액티비티가 풍부한 지역이 어울립니다.",
+    "Overseas": "아이슬란드",
+    "Domestic": "독도"
+  },
+  "ISFP": {
+    "title": "예술가",
+    "img": "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99DC9A425AC8D6A526",
+    "explanation": "감각적이고 예술적인 유형으로, 예술과 자연을 함께 즐길 수 있는 장소가 어울립니다.",
+    "Overseas": "덴마크",
+    "Domestic": "단양"
+  },
+  "ESTP": {
+    "title": "스릴 즐기는 여행객",
+    "img": "https://i.pinimg.com/564x/8f/3b/8c/8f3b8c2f0cf1b41be2c697e991c6f2de.jpg",
+    "explanation": "모험을 즐기는 유형으로, 스릴과 액티비티가 풍부한 지역이 어울립니다.",
+    "Overseas": "뉴질랜드",
+    "Domestic": "제주도"
+  },
+  "ESFP": {
+    "title": "자유로운 영혼",
+    "img": "https://i.pinimg.com/736x/74/f2/00/74f200e9224fbd21b31fad3471a2a6a0.jpg",
+    "explanation": "자유로운 영혼을 가진 유형으로, 축제와 엔터테인먼트가 풍부한 도시나 해변이 어울립니다.",
+    "Overseas": "리우데자네이루",
+    "Domestic": "강릉"
+  },
+  "ESTJ": {
+    "title": "활동적인 여행객",
+    "img": "https://i.pinimg.com/564x/fa/fb/cf/fafbcf23f7e3f3fc6df09c026162f107.jpg",
+    "explanation": "원하는 것을 확실히 아는 성격으로, 역사적인 도시와 비즈니스 관련 여행이 어울립니다.",
+    "Overseas": "런던",
+    "Domestic": "서울"
+  },
+  "ESFJ": {
+    "title": "친절한 여행객",
+    "img": "https://i.pinimg.com/736x/74/f2/00/74f200e9224fbd21b31fad3471a2a6a0.jpg",
+    "explanation": "https://i.pinimg.com/564x/d2/a8/c0/d2a8c03ce5db17a34a21bded01da5e0e.jpg",
+    "Overseas": "발리",
+    "Domestic": "여수"
+  },
+  "ENFP": {
+    "title": "재미있는 여행가",
+    "img": "https://mediaim.expedia.com/destination/1/c63446536e347399b089bf0c51fa8431.jpg",
+    "explanation": "재기발랄하고 예술적인 성향을 가진 유형으로, 다양한 문화와 예술 행사가 열리는 장소가 어울립니다.",
+    "Overseas": "라오스",
+    "Domestic": "양양"
+  },
+  "ENTP": {
+    "title": "창의적인 여행객",
+    "img": "https://res.klook.com/image/upload/fl_lossy.progressive,w_800,c_fill,q_85/v1620987996/59 SHANGHAI/The_Bund_app.jpg",
+    "explanation": "창의적이고 논쟁을 즐기는 유형으로, 혁신과 문화적 다양성을 추구하는 도시가 어울립니다.",
+    "Overseas": "상하이",
+    "Domestic": "부산"
+  },
+  "ENFJ": {
+    "title": "열정적인 탐험가",
+    "img": "https://i.pinimg.com/564x/1d/ee/75/1dee75f217b62b0c22a7d49922963760.jpg",
+    "explanation": "열정적이고 다정한 성격으로, 문화적 경험이 풍부한 도시나 자연 경관이 어울립니다.",
+    "Overseas": "파리",
+    "Domestic": "속초"
+  },
+  "ENTJ": {
+    "title": "리더십을 강조하는 여행객",
+    "img": "https://i.pinimg.com/736x/ae/7c/a8/ae7ca839fa2cd94c8fe410791558a298.jpg",
+    "explanation": "도전적이고 리더십을 강조하는 성격으로, 활동적인 여행이나 아웃도어 경험이 필요한 곳이 어울립니다.",
+    "Overseas": "아이슬란드",
+    "Domestic": "당진"
+  }
+}

@@ -15,12 +15,13 @@ class resultTravel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var selectedMBTI;
-
     Future MbtiJsonDecode() async {
-      String data = await rootBundle.loadString('travel_img/travel.json');
+      String data = await rootBundle.loadString('travel_img/newTravel.json');
       selectedMBTI = jsonDecode(data);
       if (selectedMBTI != null) {
         selectedMBTI = selectedMBTI[mbti];
+        print(selectedMBTI.keys);
+
         return selectedMBTI;
       } else {
         return null;
@@ -45,7 +46,7 @@ class resultTravel extends StatelessWidget {
                   image: DecorationImage(
                     alignment: AlignmentDirectional.center,
                     fit: BoxFit.contain,
-                    image: AssetImage("page_img/r_img2.png"),
+                    image: AssetImage("page_img/r_img1.png"),
                   ),
                 ),
                 child: Column(
@@ -59,25 +60,30 @@ class resultTravel extends StatelessWidget {
                         child: Container(
                           alignment: Alignment.center,
                           height: 50,
-                          margin: EdgeInsets.symmetric(horizontal: 50),
+                          margin: EdgeInsets.symmetric(horizontal: 45),
                           decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey)),
-                          child:
-                              Text('활동적인 여행가', style: TextStyle(fontSize: 20)),
+                              // border:
+                              //     Border(bottom: BorderSide(color: Colors.grey)),
+                              ),
+                          child: Text('${futureDate['title']}',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400, fontSize: 20)),
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 15,
                       ),
                       Container(
-                        height: 50,
-                        margin: EdgeInsets.symmetric(horizontal: 50),
+                        height: 40,
+                        margin: EdgeInsets.symmetric(horizontal: 45),
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey)),
+                            // border: Border.all(color: Colors.grey)
+                            ),
                         child: Center(
                             child: Text(
-                          "${mbti}",
-                          style: TextStyle(fontSize: 25),
+                          "${mbti.toUpperCase()}",
+                          style: TextStyle(
+                              fontSize: 35, fontWeight: FontWeight.bold),
                         )),
                       ),
                       SizedBox(
@@ -85,7 +91,7 @@ class resultTravel extends StatelessWidget {
                       ),
                       Container(
                         height: 175,
-                        margin: EdgeInsets.symmetric(horizontal: 50),
+                        margin: EdgeInsets.symmetric(horizontal: 45),
                         decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey),
                             color: Colors.blue),
@@ -135,7 +141,7 @@ class resultTravel extends StatelessWidget {
                               ],
                             ),
                             Divider(
-                              height: 5,
+                              height: 10,
                               color: Colors.white,
                             ),
                             Padding(
@@ -152,10 +158,13 @@ class resultTravel extends StatelessWidget {
                       ),
                       Container(
                         height: 175,
-                        margin: EdgeInsets.symmetric(horizontal: 50),
+                        margin: EdgeInsets.symmetric(horizontal: 45),
                         decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey)),
-                        child: Center(child: Text(futureDate['explanation'])),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(child: Text(futureDate['explanation'])),
+                        ),
                       )
                     ]),
               ),
