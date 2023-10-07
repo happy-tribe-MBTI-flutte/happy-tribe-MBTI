@@ -1,0 +1,115 @@
+{
+    "INFJ": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFAsQVc2tm7ivefO_uzyTbO27AqlBudm83uw&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBd9eOlHrfXtCE6x6eefk7zUOeMGgUBFHkLA&usqp=CAU",
+    "explanation": "감수성이 높고 비주류적인 음료나 미식 술을 선호할 수 있습니다.",
+    "recommendation": "비주류적인 음료",
+    "Other recommendations": "와인"
+  },
+  "INFP": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbqMhRiftsRUmFtAyc0Bt0EVhVX5QrlKcg7A&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-Tu4Sx22fQQg3P0NhVK4CR50jHdzog77CAg&usqp=CAU",
+    "explanation": "예술과 문학을 즐기며, 레드 와인 또는 밀키스와 같이 부드러운 음료를 좋아할 수 있습니다.",
+    "recommendation": "레드 와인",
+    "Other recommendations": "밀키스"
+  },
+  "INTP": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4GR8IesMiRkyoWNA6jTz2EtlczxwFp92Udg&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf2GVqSBaBKfWyDsoZ8JEzQcaVRupKfBPNaA&usqp=CAU",
+    "explanation": "아이디어와 논리를 중요시하므로, 라거 또는 라이트 맥주와 같이 가벼운 술을 선호할 수 있습니다",
+    "recommendation": "라거",
+    "Other recommendations": "라이트 맥주"
+  },
+  "INTJ": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNJyywChYZQqjWGdwZnd0o24cs13EmuEsZLA&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaa8m7xJJZW2TtWjVcOXu9w_vBnRexhOJKtg&usqp=CAU",
+    "explanation": "지적이고 탐구심이 강하므로, 고품질의 스카치 위스키나 브랜디와 같은 고급 술을 선호할 수 있습니다.",
+    "recommendation": "고급 스카치 위스키",
+    "Domestic": "브랜디"
+  },
+  "ISTJ": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLrq-SSYgtFSdHgiNjdB1rGYL0SAj8iJbC2A&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRylRiOgdmVABbpFMHw1jaep-F4WY2mNJhQsA&usqp=CAU",
+    "explanation": "고요하고 안정된 분위기를 선호하므로, 가벼운 술 또는 고급스러운 칵테일을 고를 수 있습니다.",
+    "recommendation": "가벼운 술",
+    "Other recommendations": "고급스러운 칵테일"
+  },
+  "ISFJ": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbqMhRiftsRUmFtAyc0Bt0EVhVX5QrlKcg7A&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbMi1Mm8d9LaHI21pExEQhcmIiM4AlDeacVQ&usqp=CAU",
+    "explanation": "온화하고 다정한 성격으로, 스위트 와인이나 따뜻한 음료를 좋아할 수 있습니다.",
+    "recommendation": "스위트 와인",
+    "Other recommendations": "따뜻한 음료"
+  },
+  "ISTP": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3JXOKxcJ3tvrOoARHt4F2oTrY1ETSmXlw2A&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZtefMgt-bpqCHosM6QBEU-vOPs7fCCR7KJw&usqp=CAU",
+    "explanation": "모험적이고 호기심이 많으므로, 다양한 칵테일을 시도하기를 즐깁니다.",
+    "recommendation": "다양한 칵테일",
+    "Other recommendations": "모히토"
+  },
+  "ISFP": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZtefMgt-bpqCHosM6QBEU-vOPs7fCCR7KJw&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-Tu4Sx22fQQg3P0NhVK4CR50jHdzog77CAg&usqp=CAU",
+    "explanation": "예술적이고 감각적인 성격으로, 과일 향이 나는 칵테일이나 화려한 칵테일을 즐깁니다.",
+    "recommendation": "과일 향이 나는 칵테일",
+    "Other recommendations": "화려한 칵테일"
+  },
+  "ESTP": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbqMhRiftsRUmFtAyc0Bt0EVhVX5QrlKcg7A&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-Tu4Sx22fQQg3P0NhVK4CR50jHdzog77CAg&usqp=CAU",
+    "explanation": "모험적이고 활동적인 성격으로, 특별한 칵테일이나 다양한 맥주를 즐기기 좋아할 수 있습니다.",
+    "recommendation": "특별한 칵테일",
+    "Other recommendations": "다양한 맥주"
+  },
+  "ESFP": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3JXOKxcJ3tvrOoARHt4F2oTrY1ETSmXlw2A&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZtefMgt-bpqCHosM6QBEU-vOPs7fCCR7KJw&usqp=CAU",
+    "explanation": "다양한 칵테일이나 과일 향이 나는 술을 즐깁니다.",
+    "recommendation": "다양한 칵테일",
+    "Other recommendations": "과일 향이 나는 술"
+  },
+  "ESTJ": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNJyywChYZQqjWGdwZnd0o24cs13EmuEsZLA&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaa8m7xJJZW2TtWjVcOXu9w_vBnRexhOJKtg&usqp=CAU",
+    "explanation": "원하는 것을 확실히 아는 성격이므로, 고급 스카치 위스키나 브랜디와 같은 고급 술을 즐깁니다.",
+    "recommendation": "고급 스카치 위스키",
+    "Other recommendations": "브랜디"
+  },
+  "ESFJ": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStgZjMbAqZ2Ah3lTkKio1UIT31rsJLchiMMAbztMDuIrik4anjs1vwk6KIx-JwyHudl9k&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNAQgg08od2c-v9m70D5C-sW0GgDCHyE_yNQ&usqp=CAU",
+    "explanation": "친근하고 사교적인 성격으로, 와인과 같이 사람들과 함께 즐길 수 있는 술을 선호할 수 있습니다.",
+    "recommendation": "화이트 러시안",
+    "Other recommendations": "핫 초콜릿"
+  },
+  "ENFP": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3JXOKxcJ3tvrOoARHt4F2oTrY1ETSmXlw2A&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZtefMgt-bpqCHosM6QBEU-vOPs7fCCR7KJw&usqp=CAU",
+    "explanation": "다양한 칵테일, 피지 사과, 라임과 같은 상큼한 술을 좋아할 수 있습니다",
+    "recommendation": "다양한 칵테일",
+    "Other recommendations": "상큼한 술"
+  },
+  "ENTP": {
+    "img1": "hhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCKjL6FDEsme1iRqa9GrPKINC8ahQH90gGbw&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBjnURZCQISNAtEXhLXR33ZC7kKv5hjh3ZxA&usqp=CAU",
+    "explanation": "호기심 많고 창의적인 성격으로, 다양한 혁신적인 칵테일을 즐기기 좋아할 수 있습니다.",
+    "recommendation": "혁신적인 칵테일",
+    "Other recommendations": "창의적인 술"
+  },
+  "ENFJ": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4GR8IesMiRkyoWNA6jTz2EtlczxwFp92Udg&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3JXOKxcJ3tvrOoARHt4F2oTrY1ETSmXlw2A&usqp=CAU",
+    "explanation": "열정적이고 다정한 성격으로, 크래프트 맥주나 다양한 칵테일을 좋아할 수 있습니다.",
+    "recommendation": "크래프트 맥주",
+    "Other recommendations": "다양한 칵테일"
+  },
+  "ENTJ": {
+    "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRoIO04lllomYB_iVLvkjpVfQu-xvtKmS1eQ&usqp=CAU",
+    "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRylRiOgdmVABbpFMHw1jaep-F4WY2mNJhQsA&usqp=CAU",
+    "explanation": "목표를 달성하기 위해 집중하므로, 강한 알코올 함량이 있는 술을 고를 수 있습니다.",
+    "recommendation ": "강한 알코올 함량 술",
+    "Other recommendations": "칵테일"
+  }
+  }
+  
