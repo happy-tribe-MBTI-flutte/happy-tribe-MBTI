@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:mbti/question.dart';
 import 'package:mbti/result.dart';
@@ -10,6 +11,8 @@ void main() {
   ));
 }
 
+late AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer.newPlayer();
+
 class Main extends StatefulWidget {
   const Main({super.key});
 
@@ -19,8 +22,25 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   @override
+  void initState() {
+    super.initState();
+
+    _assetsAudioPlayer.open(
+      Audio("assets/audios/background.mp3"),
+      loopMode: LoopMode.single, //반복 여부 (LoopMode.none : 없음)
+      autoStart: true, //자동 시작 여부
+      showNotification: true, //스마트폰 알림 창에 띄울지 여부
+    );
+
+    // _assetsAudioPlayer.play(); //재생
+    // _assetsAudioPlayer.pause(); //멈춤
+    // _assetsAudioPlayer.stop(); //정지
+  }
+
+  @override
   var mbtiStr = "intp";
   Widget build(BuildContext context) {
+    _assetsAudioPlayer.play();
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -86,7 +106,10 @@ class _MainState extends State<Main> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => result(mbtiResult:  'intp',)),
+                  MaterialPageRoute(
+                      builder: (context) => result(
+                            mbtiResult: 'intp',
+                          )),
                 );
               },
               child: Center(
