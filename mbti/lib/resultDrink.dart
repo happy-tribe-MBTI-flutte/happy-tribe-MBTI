@@ -17,10 +17,12 @@ class resultDrink extends StatelessWidget {
     var selectedMBTI;
 
     Future MbtiJsonDecode() async {
-      String data = await rootBundle.loadString('Drink_img/dink.json');
+      String data = await rootBundle.loadString('Drink_img/drink.json');
       selectedMBTI = jsonDecode(data);
       if (selectedMBTI != null) {
-        selectedMBTI = selectedMBTI[mbti];
+        selectedMBTI = selectedMBTI['INTJ'];
+        print(selectedMBTI.keys);
+
         return selectedMBTI;
       } else {
         return null;
@@ -28,68 +30,131 @@ class resultDrink extends StatelessWidget {
     }
 
     
-
-    var mmm = 'mbti';
-    
     return FutureBuilder(
       future: MbtiJsonDecode(),
       builder: (context, snapshot) {
-        if(snapshot.connectionState == ConnectionState.waiting){
-          return CircularProgressIndicator();
-        }else if(snapshot.hasError){
-          return Text('에러 Error: ${snapshot.error}');
-        }else{
-          var futureDate = snapshot,data;
+          if(snapshot.connectionState == ConnectionState.waiting){
+            return CircularProgressIndicator();
+          }else if(snapshot.hasError){
+            return Text('에러 Error: ${snapshot.error}');
+          }else{
+          var futureDate = snapshot.data;
           return Scaffold(
-              body: 
-                Container(
-                  decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage('page_img/r_img2.png'),
-                    ),
+            body: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage('page_img/r_img2.png'),
                   ),
-                  child: Column(
-                    children: [
+              ),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 190,
+                  ),
                       SizedBox(
-                        height: 190,
-                      ),
-                      Container(
-                        margin: EdgeInsets.fromLTRB(50, 40, 50, 0), padding: EdgeInsets.only(left:20, right:20),
+                    width: 390,
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(50, 40, 50, 0), padding: EdgeInsets.only(left:10, right:10),
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),  
+                          border: Border.all(color: Colors.black), 
+                                     
                         ),
                         child: Container(
-                          margin: EdgeInsets.fromLTRB(10, 0, 10, 0), padding: EdgeInsets.all(50),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),  
-                        ),
-                        ),
-                        ),
-                      Container(
-                          margin: EdgeInsets.fromLTRB(50, 40, 50, 0), padding: EdgeInsets.only(left:20, right:20),
+                          height: 100,
+                          margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),  
+                          border: Border( left:BorderSide(color: Colors.black), right:BorderSide(color: Colors.black)),    
                           ),
-                          child: Container(
-                            margin: EdgeInsets.fromLTRB(10, 0, 10, 0), padding: EdgeInsets.all(50),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),  
-                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Image.network(futureDate['img1'],
+                              height: 80,
+                              ),
+                              Container(
+                                width: 100,
+                                child: Column(
+                                  children: [
+                                    Text("${futureDate['recommendation']}",
+                                    style: TextStyle(fontSize: 11,),
+                                    ),
+                                    Center(
+                                      child: Wrap(
+                                        children:[
+                                          Text("${futureDate['explanation1']}",
+                                        style: TextStyle(fontSize: 11,
+                                        ),
+                                        textWidthBasis: TextWidthBasis.parent
+                                        ),
+                                        ] 
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ]
                           ),
                         ),
-                    ],
+                    ),
                   ),
+           SizedBox(
+                    width: 390,
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(50, 40, 50, 0), padding: EdgeInsets.only(left:10, right:10),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black), 
+                                     
+                        ),
+                        child: Container(
+                          height: 100,
+                          margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                          decoration: BoxDecoration(
+                          border: Border( left:BorderSide(color: Colors.black), right:BorderSide(color: Colors.black)),    
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Image.network(futureDate['img2'],
+                              height: 80,
+                              ),
+                              Container(
+                                width: 100,
+                                child: Column(
+                                  children: [
+                                    Text("${futureDate['Other recommendations']}",
+                                    style: TextStyle(fontSize: 11,),
+                                    ),
+                                    Center(
+                                      child: Wrap(
+                                        children:[
+                                          Text("${futureDate['explanation2']}",
+                                        style: TextStyle(fontSize: 11,
+                                        ),
+                                        textWidthBasis: TextWidthBasis.parent
+                                        ),
+                                        ] 
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ]
+                          ),
+                        ),
+                    ),
+                  ),
+                  ],
                 ),
-                floatingActionButton: FloatingActionButton.extended(
-                  onPressed: () {
-                    ();
-                  },
-                  label: const Text('다시 테스트 하기'),
-                  backgroundColor: Colors.blue[600],
-                ),
-                floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-          
+              ),
+              floatingActionButton: FloatingActionButton.extended(
+                onPressed: () {
+                  ();
+                },
+                label: const Text('다시 테스트 하기'),
+                backgroundColor: Colors.blue[600],
+              ),
+              floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
           );
         }
       },
