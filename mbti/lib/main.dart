@@ -11,8 +11,6 @@ void main() {
   ));
 }
 
-late AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer.newPlayer();
-
 class Main extends StatefulWidget {
   const Main({super.key});
 
@@ -22,25 +20,10 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   @override
-  void initState() {
-    super.initState();
-
-    _assetsAudioPlayer.open(
-      Audio("assets/audios/background.mp3"),
-      loopMode: LoopMode.single, //반복 여부 (LoopMode.none : 없음)
-      autoStart: true, //자동 시작 여부
-      showNotification: true, //스마트폰 알림 창에 띄울지 여부
-    );
-
-    // _assetsAudioPlayer.play(); //재생
-    // _assetsAudioPlayer.pause(); //멈춤
-    // _assetsAudioPlayer.stop(); //정지
-  }
-
-  @override
   var mbtiStr = "intp";
+  bool _play = false;
+
   Widget build(BuildContext context) {
-    _assetsAudioPlayer.play();
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -51,6 +34,17 @@ class _MainState extends State<Main> {
           ),
         ),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          AudioWidget.assets(
+            child: TextButton(
+                onPressed: () {
+                  setState(() {
+                    _play = !_play;
+                  });
+                },
+                child: Text(_play ? '멈춤' : '재생')),
+            path: 'assets/audios/background.mp3',
+            play: _play,
+          ),
           Text(
             '나와 맞는 여행지에 어울리는 술과 노래는 뭘까?',
             style: TextStyle(
@@ -98,6 +92,10 @@ class _MainState extends State<Main> {
               ),
             ),
           ),
+          Container(
+            height: 100,
+            child: ResultMusic(),
+          ),
           SizedBox(
             height: 50,
             width: 250,
@@ -112,6 +110,7 @@ class _MainState extends State<Main> {
                           )),
                 );
               },
+
               child: Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -178,7 +178,7 @@ class resultTravel extends StatelessWidget {
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 4,
                                 ),
-                                if (futureDate['explanation'].length > 50)
+                                if (futureDate['explanation'].length > 10)
                                   TextButton(
                                       onPressed: () {}, child: Text('더보기...'))
                               ],
