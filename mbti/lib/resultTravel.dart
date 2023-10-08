@@ -174,13 +174,48 @@ class resultTravel extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  futureDate['explanation'],
+                                  futureDate['expl'],
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 4,
                                 ),
-                                if (futureDate['explanation'].length > 10)
+                                if (futureDate['expl'].length > 10)
                                   TextButton(
-                                      onPressed: () {}, child: Text('더보기...'))
+                                    child: Text(
+                                      "더보기",
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 5,
+                                    ),
+                                    onPressed: () {
+                                      showDialog(
+                                          context: context,
+                                          barrierDismissible:
+                                              true, // 바깥 영역 터치시 닫을지 여부
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: Center(
+                                                  child: Text(
+                                                      '${mbti.toUpperCase()}')),
+                                              content: Container(
+                                                height: 400,
+                                                child: SingleChildScrollView(
+                                                  scrollDirection:
+                                                      Axis.vertical,
+                                                  child: Text(
+                                                      "${futureDate['expl_Add']}"),
+                                                ),
+                                              ),
+                                              actions: [
+                                                TextButton(
+                                                  child: Text('확인'),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                ),
+                                              ],
+                                            );
+                                          });
+                                    },
+                                  )
                               ],
                             ),
                           )),
