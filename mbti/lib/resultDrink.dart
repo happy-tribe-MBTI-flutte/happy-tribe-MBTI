@@ -8,9 +8,11 @@ void main() {
 }
 
 class resultDrink extends StatelessWidget {
-  const resultDrink({super.key, this.mbti,});
+  const resultDrink({
+    super.key,
+    this.mbti,
+  });
   final mbti;
-  
 
   @override
   Widget build(BuildContext context) {
