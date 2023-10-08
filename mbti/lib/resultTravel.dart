@@ -19,7 +19,7 @@ class resultTravel extends StatelessWidget {
       String data = await rootBundle.loadString('travel_img/newTravel.json');
       selectedMBTI = jsonDecode(data);
       if (selectedMBTI != null) {
-        selectedMBTI = selectedMBTI[mbti];
+        selectedMBTI = selectedMBTI['INTP'];
         print(selectedMBTI.keys);
 
         return selectedMBTI;
@@ -43,10 +43,14 @@ class resultTravel extends StatelessWidget {
                 height: 844,
                 width: 390,
                 decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                      colors: [Color.fromARGB(255, 245, 245, 170), Colors.red]),
                   image: DecorationImage(
                     alignment: AlignmentDirectional.center,
-                    fit: BoxFit.contain,
-                    image: AssetImage("page_img/r_img1.png"),
+                    fit: BoxFit.cover,
+                    image: AssetImage("travel_img/background1.png"),
                   ),
                 ),
                 child: Column(
@@ -163,7 +167,23 @@ class resultTravel extends StatelessWidget {
                             border: Border.all(color: Colors.grey)),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Center(child: Text(futureDate['explanation'])),
+                          child: Center(
+                              child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  futureDate['explanation'],
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 4,
+                                ),
+                                if (futureDate['explanation'].length > 10)
+                                  TextButton(
+                                      onPressed: () {}, child: Text('더보기...'))
+                              ],
+                            ),
+                          )),
                         ),
                       )
                     ]),

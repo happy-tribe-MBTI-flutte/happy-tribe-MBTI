@@ -13,6 +13,7 @@ class result extends StatefulWidget {
 }
 
 class _resultState extends State<result> {
+  bool a = true;
   @override
   Widget build(BuildContext context) {
     String mbtiResult = widget.mbtiResult;

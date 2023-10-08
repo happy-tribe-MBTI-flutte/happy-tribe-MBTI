@@ -27,10 +27,6 @@ class resultDrink extends StatelessWidget {
       }
     }
 
-    
-
-    var mmm = 'mbti';
-    
     return FutureBuilder(
       future: MbtiJsonDecode(),
       builder: (context, snapshot) {

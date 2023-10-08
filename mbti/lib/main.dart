@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:mbti/question.dart';
 import 'package:mbti/result.dart';
@@ -20,6 +21,8 @@ class Main extends StatefulWidget {
 class _MainState extends State<Main> {
   @override
   var mbtiStr = "intp";
+  bool _play = false;
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -31,6 +34,17 @@ class _MainState extends State<Main> {
           ),
         ),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          AudioWidget.assets(
+            child: TextButton(
+                onPressed: () {
+                  setState(() {
+                    _play = !_play;
+                  });
+                },
+                child: Text(_play ? '멈춤' : '재생')),
+            path: 'assets/audios/background.mp3',
+            play: _play,
+          ),
           Text(
             '나와 맞는 여행지에 어울리는 술과 노래는 뭘까?',
             style: TextStyle(
@@ -78,6 +92,10 @@ class _MainState extends State<Main> {
               ),
             ),
           ),
+          Container(
+            height: 100,
+            child: ResultMusic(),
+          ),
           SizedBox(
             height: 50,
             width: 250,
@@ -86,9 +104,13 @@ class _MainState extends State<Main> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => result(mbtiResult:  'intp',)),
+                  MaterialPageRoute(
+                      builder: (context) => result(
+                            mbtiResult: 'intp',
+                          )),
                 );
               },
+
               child: Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
