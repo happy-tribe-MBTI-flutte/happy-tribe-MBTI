@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-void main() {
-  runApp(MaterialApp(home: ResultMusic()));
-}
+// void main() {
+//   runApp(MaterialApp(home: ResultMusic()));
+// }
 
 class ResultMusic extends StatelessWidget {
   const ResultMusic({super.key, this.mbti});
