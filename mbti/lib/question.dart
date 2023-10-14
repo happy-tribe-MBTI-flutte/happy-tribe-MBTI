@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, prefer_const_constructors, avoid_unnecessary_containers, sort_child_properties_last, deprecated_member_use, avoid_print, sized_box_for_whitespace
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -34,7 +36,7 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
   }
 
   Future<void> _loadQuestions() async {
-    String data = await rootBundle.loadString('mbti.json');
+    String data = await rootBundle.loadString('assets/mbti.json');
     Map<String, dynamic> jsonData = json.decode(data);
     jsonData.forEach((key, value) {
       questions.add(value);
@@ -121,41 +123,97 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   SizedBox(height: 10.0),
-                  Center(
-                    child: Text(
-                      currentQuestion['question'],
-                      style: TextStyle(
-                          fontSize: 18.0, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Center(
+                      child: Text(
+                        currentQuestion['question'],
+                        style: TextStyle(
+                            fontSize: 18.0, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
-                  SizedBox(height: 20.0),
-                  ElevatedButton(
-                    onPressed: () {
-                      _onOptionSelected('a');
-                    },
-                    child: Text('a: ${options['a']}'),
+                  SizedBox(height: 40.0),
+                  SizedBox(
+                    height: 70,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFFF5F5F5),
+                          surfaceTintColor: Color(0xFFF5F5F5),
+                          foregroundColor: Color(0xFFF6D7FF),
+                          side: const BorderSide(
+                            width: 1.0,
+                            color: Color(0xFF908F8F),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        onPressed: () {
+                          _onOptionSelected('a');
+                        },
+                        child: Text(
+                          'A. ${options['a']}',
+                          style: TextStyle(color: Colors.black, fontSize: 14),
+                        )),
                   ),
                   SizedBox(height: 10.0),
-                  ElevatedButton(
-                    onPressed: () {
-                      _onOptionSelected('b');
-                    },
-                    child: Text('b: ${options['b']}'),
+                  SizedBox(
+                    height: 70,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFFF5F5F5),
+                        surfaceTintColor: Color(0xFFF5F5F5),
+                        foregroundColor: Color(0xFFF6D7FF),
+                        side: const BorderSide(
+                          width: 1.0,
+                          color: Color(0xFF908F8F),
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      onPressed: () {
+                        _onOptionSelected('b');
+                      },
+                      child: Text(
+                        'B. ${options['b']}',
+                        style: TextStyle(color: Colors.black, fontSize: 14),
+                      ),
+                    ),
                   ),
                   SizedBox(height: 30.0),
-                  ElevatedButton(
-                    onPressed: () {
-                      if (currentQuestionIndex > 0) {
-                        _goToPreviousPage();
-                      }
-                    },
-                    child: Text('이전 문항으로'),
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(double.infinity, 40.0),
-                      // 1번 문항에서는 버튼을 비활성화
-                      // (currentQuestionIndex > 0일 때만 버튼이 활성화되도록)
-                      primary: currentQuestionIndex > 0 ? null : Colors.grey,
+                  Center(
+                    child: Container(
+                      width: 100,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFFF5F5F5),
+                            surfaceTintColor: Color(0xFFF5F5F5),
+                            foregroundColor: Color(0xFFF6D7FF),
+                            side: const BorderSide(
+                              width: 1.0,
+                              color: Color(0xFF908F8F),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            minimumSize: Size(double.infinity, 40.0),
+                            // 1번 문항에서는 버튼을 비활성화
+                            // (currentQuestionIndex > 0일 때만 버튼이 활성화되도록)
+                            primary:
+                                currentQuestionIndex > 0 ? null : Colors.grey,
+                          ),
+                          onPressed: () {
+                            if (currentQuestionIndex > 0) {
+                              _goToPreviousPage();
+                            }
+                          },
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: Colors.black,
+                          )),
                     ),
                   ),
                 ],
