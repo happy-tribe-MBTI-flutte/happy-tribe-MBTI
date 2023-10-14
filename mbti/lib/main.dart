@@ -1,5 +1,7 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
+import 'package:icons_plus/icons_plus.dart';
+import 'package:mbti/page/github_page.dart';
 import 'package:mbti/question.dart';
 import 'package:mbti/result.dart';
 
@@ -25,29 +27,36 @@ class _MainState extends State<Main> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.transparent,
+        clipBehavior: Clip.hardEdge,
+        hoverColor: Colors.transparent,
+        focusElevation: 0,
+        elevation: 0,
+        hoverElevation: 0,
+        highlightElevation: 0,
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => GithubPage()));
+        },
+        child: CircleAvatar(
+          radius: 30,
+          backgroundColor: Colors.transparent,
+          child: Image.asset(
+            "main/github.png",
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/page_img/m_img.png'),
+            image: AssetImage('page_img/m_img.png'),
             fit: BoxFit.cover,
           ),
         ),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          InkWell(
-            // 이미지 버튼을 추가합니다.
-            onTap: () {
-              // 이미지 버튼을 눌렀을 때 실행할 동작을 여기에 추가합니다.
-            },
-            child: Container(
-              padding: EdgeInsets.all(10), // 이미지 주변에 여백을 추가합니다.
-              child: Image.asset(
-                'assets/page_img/github_img.png', // 이미지의 경로를 지정합니다.
-                width: 50, // 이미지의 너비를 조정합니다.
-                height: 50, // 이미지의 높이를 조정합니다.
-              ),
-            ),
-          ),
           AudioWidget.assets(
             child: TextButton(
                 onPressed: () {
@@ -56,7 +65,7 @@ class _MainState extends State<Main> {
                   });
                 },
                 child: Text(_play ? '멈춤' : '재생')),
-            path: 'assets/audios/background.mp3',
+            path: 'audios/background.mp3',
             play: _play,
           ),
           Text(
@@ -68,6 +77,7 @@ class _MainState extends State<Main> {
           SizedBox(
             height: 20,
           ),
+
           Text('흥의 민족',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
           SizedBox(
@@ -128,7 +138,7 @@ class _MainState extends State<Main> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => result(
-                            mbtiResult: 'intp',
+                            mbtiResult: 'esfp',
                           )),
                 );
               },
