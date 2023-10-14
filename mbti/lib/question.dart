@@ -34,7 +34,7 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
   }
 
   Future<void> _loadQuestions() async {
-    String data = await rootBundle.loadString('assets/mbti.json');
+    String data = await rootBundle.loadString('mbti.json');
     Map<String, dynamic> jsonData = json.decode(data);
     jsonData.forEach((key, value) {
       questions.add(value);
