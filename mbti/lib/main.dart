@@ -1,11 +1,9 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 import 'package:mbti/page/github_page.dart';
 import 'package:mbti/question.dart';
 import 'package:mbti/result.dart';
 
-import 'resultMusic.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -43,7 +41,7 @@ class _MainState extends State<Main> {
           radius: 30,
           backgroundColor: Colors.transparent,
           child: Image.asset(
-            "main/github.png",
+            "assets/main/github.png",
             fit: BoxFit.cover,
           ),
         ),
@@ -52,7 +50,7 @@ class _MainState extends State<Main> {
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('page_img/m_img.png'),
+            image: AssetImage('assets/page_img/m_img.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -65,7 +63,7 @@ class _MainState extends State<Main> {
                   });
                 },
                 child: Text(_play ? '멈춤' : '재생')),
-            path: 'audios/background.mp3',
+            path: 'assets/audios/background.mp3',
             play: _play,
           ),
           Text(

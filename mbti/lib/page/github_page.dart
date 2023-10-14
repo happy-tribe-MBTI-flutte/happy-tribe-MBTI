@@ -31,15 +31,15 @@ class GithubPage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              TextTile(name: "오정현", git: "git", ),
+              TextTile(name: "오정현", git: "https://github.com/jeonghyun77", ),
               SizedBox(
                 height: 20,
               ),
-              TextTile(name: "임동욱", git: "git", ),
+              TextTile(name: "임동욱", git: "https://github.com/dongwook1179", ),
               SizedBox(
                 height: 20,
               ),
-              TextTile(name: "손성민", git: "git", ),
+              TextTile(name: "손성민", git: "https://github.com/sungmmmm", ),
             ]),
       ),
     );

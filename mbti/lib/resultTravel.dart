@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 
-void main() {
-  runApp(resultTravel());
-}
+// void main() {
+//   runApp(resultTravel());
+// }
 
 class resultTravel extends StatelessWidget {
   const resultTravel({super.key, this.mbti});
