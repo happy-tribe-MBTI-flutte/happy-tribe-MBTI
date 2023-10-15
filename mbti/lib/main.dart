@@ -41,7 +41,7 @@ class _MainState extends State<Main> {
           radius: 30,
           backgroundColor: Colors.transparent,
           child: Image.asset(
-            "assets/main/github.png",
+            "main/github.png",
             fit: BoxFit.cover,
           ),
         ),
@@ -50,7 +50,7 @@ class _MainState extends State<Main> {
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/page_img/m_img.png'),
+            image: AssetImage('page_img/m_img.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -63,7 +63,7 @@ class _MainState extends State<Main> {
                   });
                 },
                 child: Text(_play ? '멈춤' : '재생')),
-            path: 'assets/audios/background.mp3',
+            path: 'audios/background.mp3',
             play: _play,
           ),
           Text(

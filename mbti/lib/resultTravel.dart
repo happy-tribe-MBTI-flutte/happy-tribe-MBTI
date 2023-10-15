@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 
+import 'package:mbti/model/mbti_travel.dart';
+
 // void main() {
 //   runApp(resultTravel());
 // }
@@ -11,18 +13,22 @@ import 'dart:convert';
 class resultTravel extends StatelessWidget {
   const resultTravel({super.key, this.mbti});
   final mbti;
-
+  
   @override
   Widget build(BuildContext context) {
+    
+    MbtiTravel mbtiModel;
     var selectedMBTI;
+
+
     Future MbtiJsonDecode() async {
       String data = await rootBundle.loadString('travel_img/newTravel.json');
       selectedMBTI = jsonDecode(data);
       if (selectedMBTI != null) {
-        selectedMBTI = selectedMBTI[mbti.toUpperCase()];
-        print(selectedMBTI.keys);
+        mbtiModel = MbtiTravel.fromMap(selectedMBTI[mbti.toUpperCase()]);
+        print(mbtiModel.title);
 
-        return selectedMBTI;
+        return mbtiModel;
       } else {
         return null;
       }
@@ -36,7 +42,7 @@ class resultTravel extends StatelessWidget {
         } else if (snapshot.hasError) {
           return Text('에러 Error: ${snapshot.error}');
         } else {
-          var futureDate = snapshot.data; // 데이터를 가져옴
+          MbtiTravel futureDate = snapshot.data; // 데이터를 가져옴
           return Scaffold(
             body: Card(
               margin: EdgeInsets.all(30),
@@ -65,7 +71,7 @@ class resultTravel extends StatelessWidget {
                                   // border:
                                   //     Border(bottom: BorderSide(color: Colors.grey)),
                                   ),
-                              child: Text('${futureDate['title']}',
+                              child: Text(futureDate.title,
                                   style: TextStyle(
                                       fontWeight: FontWeight.w400,
                                       fontSize: 20)),
@@ -101,8 +107,7 @@ class resultTravel extends StatelessWidget {
                                     fit: BoxFit.cover,
                                     height: 100,
                                     width: double.infinity,
-                                    image: AssetImage(
-                                        "mbtitra_img/${mbti.toLowerCase()}.jpeg"),
+                                    image: AssetImage(futureDate.img),
                                   ),
                                 ),
                                 Row(
@@ -118,7 +123,7 @@ class resultTravel extends StatelessWidget {
                                                 fontSize: 18.0,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.white)),
-                                        Text("${futureDate['Domestic']}",
+                                        Text(futureDate.Domestic,
                                             style: TextStyle(
                                                 fontSize: 14.0,
                                                 fontWeight: FontWeight.bold)),
@@ -137,7 +142,7 @@ class resultTravel extends StatelessWidget {
                                                 fontSize: 18.0,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.white)),
-                                        Text(futureDate['Overseas'],
+                                        Text(futureDate.Overseas,
                                             style: TextStyle(
                                                 fontSize: 14.0,
                                                 fontWeight: FontWeight.bold)),
@@ -151,7 +156,7 @@ class resultTravel extends StatelessWidget {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(10.0),
-                                  child: Text(futureDate['explanation'],
+                                  child: Text(futureDate.explanation,
                                       style: TextStyle(
                                           fontSize: 12.0, color: Colors.white)),
                                 ),
@@ -171,11 +176,11 @@ class resultTravel extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      futureDate['expl'],
+                                      futureDate.expl,
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 4,
                                     ),
-                                    if (futureDate['expl'].length > 10)
+                                    if (futureDate.expl.length > 10)
                                       TextButton(
                                         child: Text(
                                           "더보기",
@@ -199,7 +204,7 @@ class resultTravel extends StatelessWidget {
                                                       scrollDirection:
                                                           Axis.vertical,
                                                       child: Text(
-                                                          "${futureDate['expl_Add']}"),
+                                                          "${futureDate.expl_Add}"),
                                                     ),
                                                   ),
                                                   actions: [
