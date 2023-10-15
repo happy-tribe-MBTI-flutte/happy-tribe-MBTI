@@ -8,16 +8,22 @@ class GithubPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.black, size: 40,
+          //색변경
+        ),
+        backgroundColor: Colors.transparent,
         elevation: 0,
       ),
+      extendBodyBehindAppBar: true,
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('main/gitback.gif'),
-                fit: BoxFit.cover)),
+                image: AssetImage('main/gitback.gif'), fit: BoxFit.cover)),
         child: ListView(
             padding: EdgeInsetsDirectional.symmetric(horizontal: 30),
             children: [
+              SizedBox(height: 70),
               Center(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 30, bottom: 30),
@@ -27,19 +33,29 @@ class GithubPage extends StatelessWidget {
                   ),
                 ),
               ),
-              TextTile(name: "조영", git: "https://github.com/gitjoyoung" ),
+              SizedBox(height: 25),
+              TextTile(name: "조영", git: "https://github.com/gitjoyoung"),
               SizedBox(
                 height: 20,
               ),
-              TextTile(name: "오정현", git: "https://github.com/jeonghyun77", ),
+              TextTile(
+                name: "오정현",
+                git: "https://github.com/jeonghyun77",
+              ),
               SizedBox(
                 height: 20,
               ),
-              TextTile(name: "임동욱", git: "https://github.com/dongwook1179", ),
+              TextTile(
+                name: "임동욱",
+                git: "https://github.com/dongwook1179",
+              ),
               SizedBox(
                 height: 20,
               ),
-              TextTile(name: "손성민", git: "https://github.com/sungmmmm", ),
+              TextTile(
+                name: "손성민",
+                git: "https://github.com/sungmmmm",
+              ),
             ]),
       ),
     );

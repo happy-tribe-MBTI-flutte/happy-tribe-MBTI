@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mbti/main.dart';
 import 'package:mbti/result.dart';
 
 // void main() {
@@ -13,6 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Pretendard'),
+      themeMode: ThemeMode.system,
       home: MBTIQuestionPage(),
     );
   }
@@ -129,7 +132,7 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
                       child: Text(
                         currentQuestion['question'],
                         style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.bold),
+                            fontSize: 18.0, fontWeight: FontWeight.w900),
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -200,12 +203,14 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
                               borderRadius: BorderRadius.circular(20),
                             ),
                             minimumSize: Size(double.infinity, 40.0),
-                            // 1번 문항에서는 버튼을 비활성화
-                            // (currentQuestionIndex > 0일 때만 버튼이 활성화되도록)
-                            primary:
-                                currentQuestionIndex > 0 ? null : Colors.grey,
                           ),
                           onPressed: () {
+                            if (currentQuestionIndex == 0) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Main()),
+                              );
+                            }
                             if (currentQuestionIndex > 0) {
                               _goToPreviousPage();
                             }
