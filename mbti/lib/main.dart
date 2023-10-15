@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mbti/page/github_page.dart';
 import 'package:mbti/question.dart';
 import 'package:mbti/result.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -41,7 +41,7 @@ class _MainState extends State<Main> {
           radius: 30,
           backgroundColor: Colors.transparent,
           child: Image.asset(
-            "assets/main/github.png",
+            "main/github.png",
             fit: BoxFit.cover,
           ),
         ),
@@ -50,7 +50,7 @@ class _MainState extends State<Main> {
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/page_img/m_img.png'),
+            image: AssetImage('page_img/m_img.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -62,41 +62,54 @@ class _MainState extends State<Main> {
                     _play = !_play;
                   });
                 },
-                child: Text(_play ? '멈춤' : '재생')),
-            path: 'assets/audios/background.mp3',
+                child: Icon(
+                  _play ? Icons.pause : Icons.play_arrow,
+                  size: 30,
+                  color: Color.fromARGB(247, 160, 150, 235),
+                )),
+            path: 'audios/background.mp3',
             play: _play,
           ),
           Text(
-            // '나와 맞는 여행지에 어울리는 술과 노래는 뭘까?',
-            '내 소울 여행지와 어울리는 술과 노래는?',
-            style: TextStyle(
-                letterSpacing: 1, fontSize: 15, fontWeight: FontWeight.w700),
+            '나와 맞는 여행지에 어울리는 술과 노래는 뭘까?',
+            // '내 소울 여행지와 어울리는 술과 노래는?',
+            style: GoogleFonts.dongle(
+                letterSpacing: 1, fontSize: 20, fontWeight: FontWeight.w700),
           ),
-          SizedBox(
-            height: 20,
-          ),
+          // SizedBox(
+          //   height: 20,
+          // ),
 
           Text('흥의 민족',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-          SizedBox(
-            height: 10,
-          ),
+              style: GoogleFonts.blackHanSans(
+                fontSize: 60,
+              )),
           Text('MBTI',
-              style: TextStyle(
-                  fontSize: 30,
+              style: GoogleFonts.blackHanSans(
+                  fontSize: 50,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(246, 235, 97, 223))),
-          SizedBox(
-            height: 30,
-          ),
+          SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.all(5.0),
             child: SizedBox(
               height: 50,
               width: 250,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(247, 160, 150, 235),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.resolveWith(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return Color.fromARGB(221, 253, 166, 252);
+                    }
+                    return Color.fromARGB(247, 160, 150, 235);
+                  }),
+                  foregroundColor: MaterialStateProperty.resolveWith(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return Colors.white;
+                    }
+                  }),
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -108,12 +121,12 @@ class _MainState extends State<Main> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Icon(Icons.arrow_right),
                       Text(
                         '테스트 하러가기',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w700),
+                        style: GoogleFonts.jua(
+                            fontSize: 25, fontWeight: FontWeight.w500),
                       ),
-                      Icon(Icons.arrow_right),
                     ],
                   ),
                 ),
@@ -128,8 +141,24 @@ class _MainState extends State<Main> {
             height: 50,
             width: 250,
             child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(247, 160, 150, 235)),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.resolveWith(
+                    (Set<MaterialState> states) {
+                  if (states.contains(MaterialState.pressed)) {
+                    return Color.fromARGB(221, 253, 166, 252);
+                  }
+                  return Color.fromARGB(247, 160, 150, 235);
+                }),
+                foregroundColor: MaterialStateProperty.resolveWith(
+                    (Set<MaterialState> states) {
+                  if (states.contains(MaterialState.pressed)) {
+                    return Colors.white;
+                  }
+                }),
+              ),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //       backgroundColor: Color.fromARGB(247, 160, 150, 235)),
               // style: ElevatedButton.styleFrom(maximumSize: Size(100, 100)),
               onPressed: () {
                 Navigator.push(
@@ -149,10 +178,10 @@ class _MainState extends State<Main> {
                     children: [
                       Text(
                         '결과 예시',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w700),
+                        style: GoogleFonts.jua(
+                            fontSize: 25, fontWeight: FontWeight.w500),
                       ),
-                      Icon(Icons.arrow_right),
+                      // Icon(Icons.arrow_right),
                     ],
                   ),
                 ),
