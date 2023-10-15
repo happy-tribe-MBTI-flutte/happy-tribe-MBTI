@@ -62,11 +62,15 @@ class _MainState extends State<Main> {
                     _play = !_play;
                   });
                 },
+<<<<<<< HEAD
+                child: Text(_play ? '멈춤' : '재생')),
+=======
                 child: Icon(
                   _play ? Icons.pause : Icons.play_arrow,
                   size: 30,
                   color: Color.fromARGB(247, 160, 150, 235),
                 )),
+>>>>>>> 4e93d14f5743fc976056db636225551225612a6b
             path: 'audios/background.mp3',
             play: _play,
           ),
