@@ -75,7 +75,7 @@ class resultTravel extends StatelessWidget {
                           )),
                         ),
                         Container(
-                          height: 310,
+                          height: 320,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey),
                               color: Colors.blue),
@@ -141,7 +141,7 @@ class resultTravel extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Container(
-                                  height: 30,
+                                  height: 40,
                                   child: Text(futureDate.explanation,
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
