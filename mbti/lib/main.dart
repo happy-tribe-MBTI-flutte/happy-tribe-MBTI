@@ -93,6 +93,11 @@ class _MainState extends State<Main> {
               width: 250,
               child: ElevatedButton(
                 style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14.0),
+                    ),
+                  ),
                   backgroundColor: MaterialStateProperty.resolveWith(
                       (Set<MaterialState> states) {
                     if (states.contains(MaterialState.pressed)) {
@@ -138,6 +143,11 @@ class _MainState extends State<Main> {
             width: 250,
             child: ElevatedButton(
               style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14.0),
+                  ),
+                ),
                 backgroundColor: MaterialStateProperty.resolveWith(
                     (Set<MaterialState> states) {
                   if (states.contains(MaterialState.pressed)) {
