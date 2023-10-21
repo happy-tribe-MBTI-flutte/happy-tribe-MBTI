@@ -15,6 +15,12 @@ class result extends StatefulWidget {
 
 class _resultState extends State<result> {
   bool a = true;
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     String mbtiResult = widget.mbtiResult;
@@ -28,6 +34,7 @@ class _resultState extends State<result> {
                 borderRadius: BorderRadius.all(Radius.circular(30))),
           ),
           onPressed: () {
+            dispose();
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MainPage()));
           },

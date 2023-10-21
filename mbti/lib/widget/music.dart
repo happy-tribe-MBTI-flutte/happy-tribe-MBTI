@@ -57,8 +57,9 @@ class _ResultMusicState extends State<ResultMusic> {
     setState(() {});
   }
 
+  late YoutubePlayerController _controller;
   youtue(String mbtiURl) {
-    YoutubePlayerController _controller = YoutubePlayerController.fromVideoId(
+    _controller = YoutubePlayerController.fromVideoId(
       videoId: mbtiURl,
       params: YoutubePlayerParams(
         showFullscreenButton: true,
@@ -72,6 +73,16 @@ class _ResultMusicState extends State<ResultMusic> {
     // TODO: implement initState
     super.initState();
     loadJsonData();
+    
+  }
+
+  @override
+  void dispose() {
+    // 페이지가 dispose 될 때 YoutubePlayerController 정리
+    if (_controller != null) {
+      _controller.close();
+    }
+    super.dispose();
   }
 
   // 이제 parsedJson 변수에 JSON 데이터가 저장됩니다.

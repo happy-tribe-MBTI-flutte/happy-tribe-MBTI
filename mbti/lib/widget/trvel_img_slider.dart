@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../model/mbti_travel.dart';
@@ -12,17 +14,43 @@ class TravelImgSlider extends StatefulWidget {
 }
 
 class _TravelImgSliderState extends State<TravelImgSlider> {
+  PageController _pageController = PageController(initialPage: 0);
+  int _currentPage = 0;
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // 1초 간격으로 페이지를 자동으로 슬라이드하기 위한 타이머 설정
+    _timer = Timer.periodic(Duration(seconds: 3), (timer) {
+      if (_currentPage < widget.futureDate.img.length - 1) {
+        _currentPage++;
+      } else {
+        _currentPage = 0;
+      }
+      _pageController.animateToPage(
+        _currentPage,
+        duration: Duration(milliseconds: 350),
+        curve: Curves.easeIn,
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
-      controller: PageController(),
+      controller: _pageController,
       itemCount: widget.futureDate.img.length,
       itemBuilder: (context, index) {
         return Column(
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(index == 0 ?  widget.futureDate.Overseas :widget.futureDate.Domestic ,
+              child: Text(
+                  index == 0
+                      ? widget.futureDate.Overseas
+                      : widget.futureDate.Domestic,
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
