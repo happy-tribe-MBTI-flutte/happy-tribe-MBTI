@@ -22,6 +22,11 @@
 
 ## 시현 영상
 
+
+
+## 피그마
+https://www.figma.com/file/URDOI2OsbigNvs2ORJC3HH?node-id=0:1&locale=en&type=design
+
 ### 서비스 설명
 
 기존 MBTI 설문을 통해 MBTI 의 성향 조회는 물론! <br>
