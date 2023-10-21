@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -32,11 +33,25 @@ class resultTravel extends StatelessWidget {
       }
     }
 
+    const colorizeColors = [
+      Colors.blue,
+      Colors.purple,
+      Colors.yellow,
+      Colors.red,
+      Colors.green,
+      Colors.amber,
+    ];
+    const colorizeTextStyle = TextStyle(
+      fontSize: 25.0,
+      fontWeight: FontWeight.bold,
+    );
+
     return FutureBuilder(
       future: MbtiJsonDecode(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator(); // 데이터 로딩 중인 경우 로딩 스피너 표시
+          return Center(
+              child: CircularProgressIndicator()); // 데이터 로딩 중인 경우 로딩 스피너 표시
         } else if (snapshot.hasError) {
           return Text('에러 Error: ${snapshot.error}');
         } else {
@@ -44,10 +59,12 @@ class resultTravel extends StatelessWidget {
           return Scaffold(
             body: Center(
               child: Container(
+                height: 820,
+                width: 400,
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
-                  margin: EdgeInsets.all(30),
+                  margin: EdgeInsets.all(20),
                   child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -56,9 +73,15 @@ class resultTravel extends StatelessWidget {
                         Center(
                           child: Container(
                             child: Center(
-                              child: Text(futureDate.title,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w400, fontSize: 20)),
+                              child: AnimatedTextKit(
+                                animatedTexts: [
+                                  ColorizeAnimatedText(futureDate.title,
+                                      textStyle: colorizeTextStyle,
+                                      colors: colorizeColors,
+                                      speed: Duration(seconds: 2))
+                                ],
+                                isRepeatingAnimation: true,
+                              ),
                             ),
                           ),
                         ),
@@ -97,7 +120,8 @@ class resultTravel extends StatelessWidget {
                               ),
                               Row(
                                 mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Expanded(
                                     child: Column(
@@ -116,7 +140,8 @@ class resultTravel extends StatelessWidget {
                                   ),
                                   Image(
                                       alignment: Alignment.center,
-                                      image: AssetImage('page_img/airplane.png'),
+                                      image:
+                                          AssetImage('page_img/airplane.png'),
                                       fit: BoxFit.contain),
                                   Expanded(
                                     child: Column(
@@ -152,54 +177,65 @@ class resultTravel extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          height: 150,
-                          margin: EdgeInsets.all(16),
+                          height: 180,
+                          margin: EdgeInsets.all(8),
                           child: Center(
+                              child: Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
                               child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                futureDate.expl,
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 4,
-                              ),
-                              if (futureDate.expl.length > 10)
-                                TextButton(
-                                  child: Text(
-                                    "더보기",
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    futureDate.expl,
+                                    overflow: TextOverflow.ellipsis,
                                     maxLines: 5,
                                   ),
-                                  onPressed: () {
-                                    showDialog(
-                                        context: context,
-                                        barrierDismissible:
-                                            true, // 바깥 영역 터치시 닫을지 여부
-                                        builder: (BuildContext context) {
-                                          return AlertDialog(
-                                            title: Center(
-                                                child: Text(
-                                                    '${mbti.toUpperCase()}')),
-                                            content: Container(
-                                              height: 400,
-                                              child: SingleChildScrollView(
-                                                scrollDirection: Axis.vertical,
-                                                child: Text(
-                                                    "${futureDate.expl_Add}"),
-                                              ),
-                                            ),
-                                            actions: [
-                                              TextButton(
-                                                child: Text('확인'),
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
-                                              ),
-                                            ],
-                                          );
-                                        });
-                                  },
-                                )
-                            ],
+                                  if (futureDate.expl.length > 15)
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: TextButton(
+                                        child: Text(
+                                          "더보기",
+                                          maxLines: 5,
+                                        ),
+                                        onPressed: () {
+                                          showDialog(
+                                              context: context,
+                                              barrierDismissible:
+                                                  true, // 바깥 영역 터치시 닫을지 여부
+                                              builder: (BuildContext context) {
+                                                return AlertDialog(
+                                                  title: Center(
+                                                      child: Text(
+                                                          '${mbti.toUpperCase()}')),
+                                                  content: Container(
+                                                    height: 400,
+                                                    child:
+                                                        SingleChildScrollView(
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      child: Text(
+                                                          "${futureDate.expl + futureDate.expl_Add}"),
+                                                    ),
+                                                  ),
+                                                  actions: [
+                                                    TextButton(
+                                                      child: Text('확인'),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                    ),
+                                                  ],
+                                                );
+                                              });
+                                        },
+                                      ),
+                                    )
+                                ],
+                              ),
+                            ),
                           )),
                         )
                       ]),
