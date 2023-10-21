@@ -3,7 +3,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mbti/main.dart';
 import 'package:mbti/page/main_page.dart';
 import 'package:mbti/page/result.dart';
 
@@ -57,62 +56,10 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
         ),
       );
     }
-    double width = MediaQuery.of(context).size.width;
-
-    double imagePosition = progressValue * 100;
     Map<String, dynamic> currentQuestion = questions[currentQuestionIndex];
     Map<String, dynamic> options = currentQuestion['options'];
 
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFFF6D7FF),
-        elevation: 0, // 그림자 제거
-        title: Container(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
-                    child: LinearProgressIndicator(
-                      minHeight: 12,
-                      value: progressValue,
-                      valueColor:
-                          AlwaysStoppedAnimation<Color>(Color(0xFF5D90FF)),
-                      backgroundColor: Color(0xffd6d6d6),
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                    ),
-                  ),
-                  Positioned(
-                    left: -78 + imagePosition * width * 0.0075,
-                    child: Container(
-                      margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
-                      child: Image.asset(
-                        'question_img/plane.png', // 이미지 파일 경로에 맞게 수정해야 함
-                        width: 220, // 이미지의 너비
-                        height: 220, // 이미지의 높이
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(30.0),
-          child: Text(
-            '< ${currentQuestionIndex + 1} / 70 >',
-            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ),
       body: Center(
         child: Container(
           width: 390,
@@ -124,82 +71,108 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
                 fit: BoxFit.cover,
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(50.0),
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                Container(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      SizedBox(height: 10.0),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                            margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                            child: LinearProgressIndicator(
+                              minHeight: 12,
+                              value: progressValue,
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                  Color(0xFF5D90FF)),
+                              backgroundColor: Color(0xffd6d6d6),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15)),
+                            ),
+                          ),
+                          Positioned(
+                            left: -75 + progressValue * 370 * 0.85,
+                            child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
+                              child: Image.asset(
+                                'question_img/plane.png', // 이미지 파일 경로에 맞게 수정해야 함
+                                width: 220, // 이미지의 너비
+                                height: 220, // 이미지의 높이
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Center(
+                        child: PreferredSize(
+                          preferredSize: Size.fromHeight(30.0),
                           child: Text(
-                            currentQuestion['question'],
+                            '< ${currentQuestionIndex + 1} / 70 >',
                             style: TextStyle(
-                                fontSize: 18.0, fontWeight: FontWeight.w900),
+                                fontSize: 16.0, fontWeight: FontWeight.bold),
                             textAlign: TextAlign.center,
                           ),
                         ),
                       ),
-                      SizedBox(height: 40.0),
-                      SizedBox(
-                        height: 70,
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFFF5F5F5),
-                              surfaceTintColor: Color(0xFFF5F5F5),
-                              foregroundColor: Color(0xFFF6D7FF),
-                              side: const BorderSide(
-                                width: 1.0,
-                                color: Color(0xFF908F8F),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(50.0),
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          SizedBox(height: 170.0),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Center(
+                              child: Text(
+                                currentQuestion['question'],
+                                style: TextStyle(
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.w900),
+                                textAlign: TextAlign.center,
                               ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                            ),
-                            onPressed: () {
-                              _onOptionSelected('a');
-                            },
-                            child: Text(
-                              'A. ${options['a']}',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 14),
-                            )),
-                      ),
-                      SizedBox(height: 10.0),
-                      SizedBox(
-                        height: 70,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFFF5F5F5),
-                            surfaceTintColor: Color(0xFFF5F5F5),
-                            foregroundColor: Color(0xFFF6D7FF),
-                            side: const BorderSide(
-                              width: 1.0,
-                              color: Color(0xFF908F8F),
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                          onPressed: () {
-                            _onOptionSelected('b');
-                          },
-                          child: Text(
-                            'B. ${options['b']}',
-                            style: TextStyle(color: Colors.black, fontSize: 14),
+                          SizedBox(height: 40.0),
+                          SizedBox(
+                            height: 70,
+                            child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0xFFF5F5F5),
+                                  surfaceTintColor: Color(0xFFF5F5F5),
+                                  foregroundColor: Color(0xFFF6D7FF),
+                                  side: const BorderSide(
+                                    width: 1.0,
+                                    color: Color(0xFF908F8F),
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  _onOptionSelected('a');
+                                },
+                                child: Text(
+                                  'A. ${options['a']}',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 14),
+                                )),
                           ),
-                        ),
-                      ),
-                      SizedBox(height: 30.0),
-                      Center(
-                        child: Container(
-                          width: 100,
-                          child: ElevatedButton(
+                          SizedBox(height: 10.0),
+                          SizedBox(
+                            height: 70,
+                            child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Color(0xFFF5F5F5),
                                 surfaceTintColor: Color(0xFFF5F5F5),
@@ -209,32 +182,61 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
                                   color: Color(0xFF908F8F),
                                 ),
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
+                                  borderRadius: BorderRadius.circular(12),
                                 ),
-                                minimumSize: Size(double.infinity, 40.0),
                               ),
                               onPressed: () {
-                                if (currentQuestionIndex == 0) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => MainPage()),
-                                  );
-                                }
-                                if (currentQuestionIndex > 0) {
-                                  _goToPreviousPage();
-                                }
+                                _onOptionSelected('b');
                               },
-                              child: Icon(
-                                Icons.arrow_back,
-                                color: Colors.black,
-                              )),
-                        ),
+                              child: Text(
+                                'B. ${options['b']}',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 14),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 30.0),
+                          Center(
+                            child: Container(
+                              width: 100,
+                              child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Color(0xFFF5F5F5),
+                                    surfaceTintColor: Color(0xFFF5F5F5),
+                                    foregroundColor: Color(0xFFF6D7FF),
+                                    side: const BorderSide(
+                                      width: 1.0,
+                                      color: Color(0xFF908F8F),
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    minimumSize: Size(double.infinity, 40.0),
+                                  ),
+                                  onPressed: () {
+                                    if (currentQuestionIndex == 0) {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => MainPage()),
+                                      );
+                                    }
+                                    if (currentQuestionIndex > 0) {
+                                      _goToPreviousPage();
+                                    }
+                                  },
+                                  child: Icon(
+                                    Icons.arrow_back,
+                                    color: Colors.black,
+                                  )),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ),
         ),
