@@ -37,11 +37,11 @@ class GithubPage extends StatelessWidget {
               ),
               Expanded(
                 child: ListView(
-                    padding: EdgeInsetsDirectional.symmetric(horizontal: 70),
+                    padding: EdgeInsetsDirectional.only(start: 80 , end: 60  ),
                     children: [
                       Center(
                         child: Padding(
-                          padding: const EdgeInsets.only( bottom: 30),
+                          padding: const EdgeInsets.only( bottom: 20),
                           child: Column(
                             children: [
                               Text("MAKERS",
@@ -56,7 +56,7 @@ class GithubPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 80),
+                      SizedBox(height: 70),
                       TextTile(
                         name: "조영",
                         git: "https://github.com/gitjoyoung",
