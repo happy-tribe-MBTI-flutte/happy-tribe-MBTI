@@ -1,0 +1,92 @@
+{
+  "INFJ": {
+    "img": "mbtitra_img/infj.jpeg",
+    "explanation": "This is an example image",
+    "Overseas": "산토리니",
+    "Domestic": "완주"
+  },
+  "INFP": {
+    "img": "mbtitra_img/infp.jpeg",
+    "explanation": "열정적이고 중재적인 성향으로, 아름다운 풍경과 예술이 어울리는 여행지가 좋습니다.",
+    "Overseas": "발리",
+    "Domestic": "지리산"
+  },
+  "INTP": {
+    "img": "mbtitra_img/intp.jpeg",
+    "explanation": "논리적이고 사색적인 유형으로, 학문적인 환경과 철학적인 장소가 어울립니다.",
+    "Overseas": "스웨덴",
+    "Domestic": "담양"
+  },
+  "INTJ": {
+    "img": "mbtitra_img/intj.jpeg",
+    "explanation": "지적이고 논리적인 유형으로, 과학적 탐구와 문화적인 경험을 추구합니다.",
+    "Overseas": "런던",
+    "Domestic": "고성"
+  },
+  "ISTJ": {
+    "img": "mbtitra_img/istj.jpeg",
+    "explanation": "성실하고 안정을 추구하는 유형으로, 역사적인 관심을 가진 도시나 자연 경관이 어울립니다.",
+    "Overseas": "교토",
+    "Domestic": "경주"
+  },
+  "ISFJ": {
+    "img": "mbtitra_img/isfj.jpeg",
+    "explanation": "다정하고 자연을 즐기는 유형으로, 자연 경관과 평화로운 여행지가 어울립니다.",
+    "Overseas": "스위스",
+    "Domestic": "전주"
+  },
+  "ISTP": {
+    "img": "mbtitra_img/istp.jpeg",
+    "explanation": "모험적이고 스포츠를 즐기는 유형으로, 액티비티가 풍부한 지역이 어울립니다.",
+    "Overseas": "아이슬란드",
+    "Domestic": "독도"
+  },
+  "ISFP": {
+    "img": "mbtitra_img/isfp.jpeg",
+    "explanation": "감각적이고 예술적인 유형으로, 예술과 자연을 함께 즐길 수 있는 장소가 어울립니다.",
+    "Overseas": "덴마크",
+    "Domestic": "단양"
+  },
+  "ESTP": {
+    "img": "mbtitra_img/estp.jpeg",
+    "explanation": "모험을 즐기는 유형으로, 스릴과 액티비티가 풍부한 지역이 어울립니다.",
+    "Overseas": "뉴질랜드",
+    "Domestic": "제주도"
+  },
+  "ESFP": {
+    "img": "mbtitra_img/esfp.jpeg",
+    "explanation": "자유로운 영혼을 가진 유형으로, 축제와 엔터테인먼트가 풍부한 도시나 해변이 어울립니다.",
+    "Overseas": "리우데자네이루",
+    "Domestic": "강릉"
+  },
+  "ESFJ": {
+    "img": "mbtitra_img/esfj.jpeg",
+    "explanation": "https://i.pinimg.com/564x/d2/a8/c0/d2a8c03ce5db17a34a21bded01da5e0e.jpg",
+    "Overseas": "발리",
+    "Domestic": "여수"
+  },
+  "ENFP": {
+    "img": "mbtitra_img/enfp.jpeg",
+    "explanation": "재기발랄하고 예술적인 성향을 가진 유형으로, 다양한 문화와 예술 행사가 열리는 장소가 어울립니다.",
+    "Overseas": "라오스",
+    "Domestic": "양양"
+  },
+  "ENTP": {
+    "img": "mbtitra_img/entp.jpeg",
+    "explanation": "창의적이고 논쟁을 즐기는 유형으로, 혁신과 문화적 다양성을 추구하는 도시가 어울립니다.",
+    "Overseas": "상하이",
+    "Domestic": "부산"
+  },
+  "ENFJ": {
+    "img": "mbtitra_img/enfj.jpeg",
+    "explanation": "열정적이고 다정한 성격으로, 문화적 경험이 풍부한 도시나 자연 경관이 어울립니다.",
+    "Overseas": "파리",
+    "Domestic": "속초"
+  },
+  "ENTJ": {
+    "img": "mbtitra_img/entj.jpeg",
+    "explanation": "도전적이고 리더십을 강조하는 성격으로, 활동적인 여행이나 아웃도어 경험이 필요한 곳이 어울립니다.",
+    "Overseas": "아이슬란드",
+    "Domestic": "당진"
+  }
+}
