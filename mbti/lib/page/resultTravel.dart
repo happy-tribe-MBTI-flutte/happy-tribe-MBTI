@@ -30,8 +30,7 @@ class resultTravel extends StatelessWidget {
       selectedMBTI = jsonDecode(data);
 
       if (selectedMBTI != null) {
-        // mbtiModel = MbtiTravel.fromMap(selectedMBTI["${mbti.toUpperCase()}"]);
-        mbtiModel = MbtiTravel.fromMap(selectedMBTI["ENFP"]);
+        mbtiModel = MbtiTravel.fromMap(selectedMBTI["${mbti.toUpperCase()}"]);
 
         return mbtiModel;
       } else {
@@ -110,8 +109,7 @@ class resultTravel extends StatelessWidget {
                         
                           child: Center(
                               child: Text(
-                            // "${mbti.toUpperCase()}",
-                            "ENTP",
+                            "${mbti.toUpperCase()}",
                             style: TextStyle(
                                 fontSize: 35, fontWeight: FontWeight.bold),
                           )),

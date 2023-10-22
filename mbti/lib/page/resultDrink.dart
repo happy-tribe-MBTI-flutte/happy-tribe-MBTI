@@ -24,7 +24,7 @@ class resultDrink extends StatelessWidget {
       String data = await rootBundle.loadString('drink_img/drink.json');
       selectedMBTI = jsonDecode(data);
       if (selectedMBTI != null) {
-        selectedMBTI = selectedMBTI['ENFP'];
+        selectedMBTI = selectedMBTI["${mbti.toUpperCase()}"];
         print(selectedMBTI.keys);
         return selectedMBTI;
       } else {

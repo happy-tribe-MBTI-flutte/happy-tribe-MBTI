@@ -13,10 +13,9 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  var mbtiStr = "intp";
   bool _play = false;
   late AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer.newPlayer();
-  @override
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -181,7 +180,7 @@ class _MainPageState extends State<MainPage> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => result(
-                                      mbtiResult: 'esfp',
+                                      mbtiResult: 'infp',
                                     )),
                           );
                         },
