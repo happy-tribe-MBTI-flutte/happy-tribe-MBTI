@@ -105,7 +105,7 @@ class resultDrink extends StatelessWidget {
                                   children: [
                                     Image.network(
                                       futureDate['img1'],
-                                      width: 100,
+                                      width: 120,
                                       height: 120,
                                       fit: BoxFit.fill,
                                     ),
@@ -113,12 +113,12 @@ class resultDrink extends StatelessWidget {
                                       padding: const EdgeInsets.all(10.0),
                                       child: Container(
                                         width: 120,
-                                        child: Column(
+                                        child: ListView(
                                           children: [
                                             Text(
                                               "${futureDate['recommendation']}",
                                               style: TextStyle(
-                                                  fontSize: 11,
+                                                  fontSize: 13,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             Center(
@@ -126,7 +126,7 @@ class resultDrink extends StatelessWidget {
                                                 Text(
                                                     "${futureDate['explanation1']}",
                                                     style: TextStyle(
-                                                      fontSize: 11,
+                                                      fontSize: 12,
                                                       letterSpacing: 0.5,
                                                     ),
                                                     textWidthBasis:
@@ -165,7 +165,7 @@ class resultDrink extends StatelessWidget {
                                     children: [
                                       Image.network(
                                         futureDate['img2'],
-                                        width: 100,
+                                        width: 120,
                                         height: 120,
                                         fit: BoxFit.fill,
                                       ),
@@ -173,12 +173,12 @@ class resultDrink extends StatelessWidget {
                                         padding: const EdgeInsets.all(10.0),
                                         child: Container(
                                           width: 120,
-                                          child: Column(
+                                          child: ListView(
                                             children: [
                                               Text(
                                                 "${futureDate['Other recommendations']}",
                                                 style: TextStyle(
-                                                    fontSize: 11,
+                                                    fontSize: 13,
                                                     fontWeight:
                                                         FontWeight.bold),
                                               ),
@@ -187,7 +187,7 @@ class resultDrink extends StatelessWidget {
                                                   Text(
                                                       "${futureDate['explanation2']}",
                                                       style: TextStyle(
-                                                        fontSize: 11,
+                                                        fontSize: 12,
                                                         letterSpacing: 0.5,
                                                       ),
                                                       textWidthBasis:

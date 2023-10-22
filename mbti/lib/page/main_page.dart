@@ -180,7 +180,7 @@ class _MainPageState extends State<MainPage> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => result(
-                                      mbtiResult: 'infp',
+                                      mbtiResult: 'ENTJ',
                                     )),
                           );
                         },

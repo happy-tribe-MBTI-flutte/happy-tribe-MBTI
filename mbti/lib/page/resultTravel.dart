@@ -72,7 +72,8 @@ class resultTravel extends StatelessWidget {
                     end: Alignment.bottomRight,
                     stops: [0.1, 1, -0.1],
                     colors: [
-                      Color.fromARGB(227, 255, 117, 214), // Use the custom gold color here
+                      Color.fromARGB(
+                          227, 255, 117, 214), // Use the custom gold color here
                       Colors.yellowAccent.shade100,
                       Color.fromARGB(255, 252, 251, 247),
                     ],
@@ -105,8 +106,7 @@ class resultTravel extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.all(10),
-                        
+                          margin: EdgeInsets.all(20),
                           child: Center(
                               child: Text(
                             "${mbti.toUpperCase()}",
@@ -127,14 +127,13 @@ class resultTravel extends StatelessWidget {
                                 ),
                               ),
                               Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SizedBox(
-                                        height: 8,
-                                      ),
                                       Text('한국',
                                           style: TextStyle(
                                               fontSize: 18.0,
@@ -152,6 +151,7 @@ class resultTravel extends StatelessWidget {
                                           AssetImage('page_img/airplane.png'),
                                       fit: BoxFit.contain),
                                   Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text('외국 ',
                                           style: TextStyle(
