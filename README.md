@@ -22,6 +22,7 @@
 
 ## 시현 영상
 
+![mbti시현 (2)](https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI/assets/126527025/a02d2c74-01f0-446f-88cb-78e99a5333e2)
 
 
 ## 피그마
