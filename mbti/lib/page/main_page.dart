@@ -15,7 +15,6 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   var mbtiStr = "intp";
   bool _play = false;
-  late AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer.newPlayer();
   @override
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class _MainPageState extends State<MainPage> {
         child: Container(
           width: 390,
           height: 844,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('page_img/m_img.png'),
               fit: BoxFit.cover,
@@ -72,6 +71,8 @@ class _MainPageState extends State<MainPage> {
                           _play = false;
                         });
                       },
+                      path: 'audios/background.mp3',
+                      play: _play,
                       child: IconButton(
                         onPressed: () {
                           _play = !_play;
@@ -79,8 +80,6 @@ class _MainPageState extends State<MainPage> {
                         },
                         icon: Icon(_play ? Icons.pause : Icons.play_arrow),
                       ),
-                      path: 'audios/background.mp3',
-                      play: _play,
                     ),
                     Text(
                       '나와 맞는 여행지에 어울리는 술과 노래는 뭘까?',
@@ -102,8 +101,8 @@ class _MainPageState extends State<MainPage> {
                         style: GoogleFonts.blackHanSans(
                             fontSize: 50,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(246, 235, 97, 223))),
-                    SizedBox(height: 10),
+                            color: const Color.fromARGB(246, 235, 97, 223))),
+                    const SizedBox(height: 10),
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: SizedBox(
@@ -114,9 +113,9 @@ class _MainPageState extends State<MainPage> {
                             backgroundColor: MaterialStateProperty.resolveWith(
                                 (Set<MaterialState> states) {
                               if (states.contains(MaterialState.pressed)) {
-                                return Color.fromARGB(221, 253, 166, 252);
+                                return const Color.fromARGB(221, 253, 166, 252);
                               }
-                              return Color.fromARGB(247, 160, 150, 235);
+                              return const Color.fromARGB(247, 160, 150, 235);
                             }),
                             foregroundColor: MaterialStateProperty.resolveWith(
                                 (Set<MaterialState> states) {
@@ -138,7 +137,7 @@ class _MainPageState extends State<MainPage> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(Icons.arrow_right),
+                                const Icon(Icons.arrow_right),
                                 Text(
                                   '테스트 하러가기',
                                   style: GoogleFonts.jua(
@@ -163,9 +162,9 @@ class _MainPageState extends State<MainPage> {
                           backgroundColor: MaterialStateProperty.resolveWith(
                               (Set<MaterialState> states) {
                             if (states.contains(MaterialState.pressed)) {
-                              return Color.fromARGB(221, 253, 166, 252);
+                              return const Color.fromARGB(221, 253, 166, 252);
                             }
-                            return Color.fromARGB(247, 160, 150, 235);
+                            return const Color.fromARGB(247, 160, 150, 235);
                           }),
                           foregroundColor: MaterialStateProperty.resolveWith(
                               (Set<MaterialState> states) {
@@ -180,7 +179,7 @@ class _MainPageState extends State<MainPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => result(
+                                builder: (context) => const Result(
                                       mbtiResult: 'esfp',
                                     )),
                           );
@@ -210,6 +209,5 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
     );
-    ;
   }
 }

@@ -1,8 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:html';
-
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -15,16 +14,16 @@ import '../widget/trvel_img_slider.dart';
 //   runApp(resultTravel());
 // }
 
-class resultTravel extends StatelessWidget {
-  const resultTravel({super.key, this.mbti});
-  final mbti;
+class ResultTravel extends StatelessWidget {
+  const ResultTravel({super.key, this.mbti});
+  final dynamic mbti;
 
   @override
   Widget build(BuildContext context) {
     MbtiTravel mbtiModel;
-    var selectedMBTI;
+    dynamic selectedMBTI;
 
-    Future MbtiJsonDecode() async {
+    Future mbtiJsonDecode() async {
       String data = await rootBundle
           .loadString('travel_assets/travel_json/new_travel.json');
       selectedMBTI = jsonDecode(data);
@@ -34,7 +33,9 @@ class resultTravel extends StatelessWidget {
 
         return mbtiModel;
       } else {
-        print("실패");
+        if (kDebugMode) {
+          print("실패");
+        }
 
         return null;
       }
@@ -52,10 +53,10 @@ class resultTravel extends StatelessWidget {
       fontSize: 25.0,
       fontWeight: FontWeight.bold,
     );
-    MbtiJsonDecode();
+    mbtiJsonDecode();
     return Scaffold(
       body: FutureBuilder(
-        future: MbtiJsonDecode(),
+        future: mbtiJsonDecode(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
@@ -66,9 +67,9 @@ class resultTravel extends StatelessWidget {
             MbtiTravel futureDate = snapshot.data; // 데이터를 가져옴
             return Scaffold(
               body: Center(
-                child: Container(
-                  height: 820,
-                  width: 400,
+                child: SizedBox(
+                  height: 844,
+                  width: 390,
                   child: Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30)),
@@ -79,17 +80,15 @@ class resultTravel extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Center(
-                            child: Container(
-                              child: Center(
-                                child: AnimatedTextKit(
-                                  animatedTexts: [
-                                    ColorizeAnimatedText(futureDate.title,
-                                        textStyle: colorizeTextStyle,
-                                        colors: colorizeColors,
-                                        speed: Duration(seconds: 2))
-                                  ],
-                                  isRepeatingAnimation: true,
-                                ),
+                            child: Center(
+                              child: AnimatedTextKit(
+                                animatedTexts: [
+                                  ColorizeAnimatedText(futureDate.title,
+                                      textStyle: colorizeTextStyle,
+                                      colors: colorizeColors,
+                                      speed: Duration(seconds: 2))
+                                ],
+                                isRepeatingAnimation: true,
                               ),
                             ),
                           ),
@@ -112,7 +111,6 @@ class resultTravel extends StatelessWidget {
                                 color: Colors.blue),
                             child: Column(
                               children: [
-                             
                                 Expanded(
                                   child: TravelImgSlider(
                                     futureDate: futureDate,
@@ -163,7 +161,7 @@ class resultTravel extends StatelessWidget {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     height: 40,
                                     child: Text(futureDate.explanation,
                                         textAlign: TextAlign.start,
@@ -216,7 +214,9 @@ class resultTravel extends StatelessWidget {
                                                         scrollDirection:
                                                             Axis.vertical,
                                                         child: Text(
-                                                            "${futureDate.expl + futureDate.expl_Add}"),
+                                                            futureDate.expl +
+                                                                futureDate
+                                                                    .expl_Add),
                                                       ),
                                                     ),
                                                     actions: [

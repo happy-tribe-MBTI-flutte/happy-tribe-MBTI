@@ -1,17 +1,18 @@
 import 'dart:convert';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 void main() {
-  runApp(MaterialApp(home: ResultMusic()));
+  runApp(const MaterialApp(home: ResultMusic()));
 }
 
 class ResultMusic extends StatefulWidget {
   const ResultMusic({super.key, this.mbti});
-  final mbti;
+  final dynamic mbti;
 
   @override
   State<ResultMusic> createState() => _ResultMusicState();
@@ -58,10 +59,10 @@ class _ResultMusicState extends State<ResultMusic> {
   }
 
   late YoutubePlayerController _controller;
-  youtue(String mbtiURl) {
+  youtube(String mbtiURl) {
     _controller = YoutubePlayerController.fromVideoId(
       videoId: mbtiURl,
-      params: YoutubePlayerParams(
+      params: const YoutubePlayerParams(
         showFullscreenButton: true,
       ),
     );
@@ -70,18 +71,15 @@ class _ResultMusicState extends State<ResultMusic> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     loadJsonData();
-    
   }
 
   @override
   void dispose() {
     // 페이지가 dispose 될 때 YoutubePlayerController 정리
-    if (_controller != null) {
-      _controller.close();
-    }
+    _controller.close();
+
     super.dispose();
   }
 
@@ -89,7 +87,9 @@ class _ResultMusicState extends State<ResultMusic> {
   @override
   Widget build(BuildContext context) {
     String? videoId = playlist["${widget.mbti}"];
-    print("videoId  :" + videoId.toString());
+    if (kDebugMode) {
+      print("videoId  :$videoId");
+    }
 
     return Scaffold(
       body: Container(
@@ -97,11 +97,11 @@ class _ResultMusicState extends State<ResultMusic> {
             ? null
             : Column(
                 children: [
-                  Container(
+                  SizedBox(
                     width: double.infinity,
                     height: 150,
                     child: YoutubePlayer(
-                      controller: youtue(parsedJson!['${widget.mbti}']['url']),
+                      controller: youtube(parsedJson!['${widget.mbti}']['url']),
                       aspectRatio: 16 / 9,
                     ),
                   ),

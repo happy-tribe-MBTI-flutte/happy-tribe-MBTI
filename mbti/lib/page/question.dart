@@ -341,7 +341,7 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => result(mbtiResult: mbtiResult),
+          builder: (context) => Result(mbtiResult: mbtiResult),
         ),
       );
     } else {
