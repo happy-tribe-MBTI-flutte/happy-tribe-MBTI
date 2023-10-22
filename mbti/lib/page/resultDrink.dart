@@ -43,12 +43,25 @@ class resultDrink extends StatelessWidget {
           var futureDate = snapshot.data;
           return Scaffold(
             resizeToAvoidBottomInset: false,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.transparent,
             body: Center(
               child: SingleChildScrollView(
                 child: Container(
-                  height: 820,
+                  height: 830,
                   width: 400,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      stops: [0.1, 1, -0.1],
+                      colors: [
+                        Color.fromARGB(227, 255, 117,
+                            214), // Use the custom gold color here
+                        Colors.yellowAccent.shade100,
+                        Color.fromARGB(255, 252, 251, 247),
+                      ],
+                    ),
+                  ),
                   child: Card(
                     margin: EdgeInsets.all(20),
                     shape: RoundedRectangleBorder(
@@ -57,77 +70,74 @@ class resultDrink extends StatelessWidget {
                       padding: const EdgeInsets.all(10.0),
                       child: Column(
                         children: [
-                          Text(
-                            'WHIT TRAVLE',
-                            style: TextStyle(
-                                fontSize: 32, fontWeight: FontWeight.bold),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'WHIT TRAVLE',
+                              style: TextStyle(
+                                  fontSize: 32, fontWeight: FontWeight.bold),
+                            ),
                           ),
-                          Container(
-                            margin: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black)),
+                          Divider(
+                            color: Colors.black,
                           ),
                           //술추천 1
-                          SizedBox(
+                          Container(
                             width: 390,
+                            margin: EdgeInsets.fromLTRB(5, 50, 5, 30),
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey.shade500),
+                            ),
                             child: Container(
-                              margin: EdgeInsets.fromLTRB(5, 50, 5, 30),
-                              padding: EdgeInsets.only(left: 10, right: 10),
+                              height: 100,
+                              margin: EdgeInsets.fromLTRB(6, 0, 6, 0),
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
+                                border: Border(
+                                    left:
+                                        BorderSide(color: Colors.grey.shade500),
+                                    right: BorderSide(
+                                        color: Colors.grey.shade500)),
                               ),
-                              child: Container(
-                                height: 100,
-                                margin: EdgeInsets.fromLTRB(6, 0, 6, 0),
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                      left: BorderSide(color: Colors.black),
-                                      right: BorderSide(color: Colors.black)),
-                                ),
-                                child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Image.network(
-                                        futureDate['img1'],
-                                        width: 100,
-                                        height: 120,
-                                        fit: BoxFit.fill,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Container(
-                                          width: 120,
-                                          child: Expanded(
-                                            child: Column(
-                                              children: [
-                                                Text(
-                                                  "${futureDate['recommendation']}",
-                                                  style: TextStyle(
-                                                      fontSize: 11,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                Center(
-                                                  child: Wrap(children: [
-                                                    Text(
-                                                        "${futureDate['explanation1']}",
-                                                        style: TextStyle(
-                                                          fontSize: 11,
-                                                          letterSpacing: 0.5,
-                                                        ),
-                                                        textWidthBasis:
-                                                            TextWidthBasis
-                                                                .parent),
-                                                  ]),
-                                                ),
-                                              ],
+                              child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Image.network(
+                                      futureDate['img1'],
+                                      width: 100,
+                                      height: 120,
+                                      fit: BoxFit.fill,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Container(
+                                        width: 120,
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              "${futureDate['recommendation']}",
+                                              style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.bold),
                                             ),
-                                          ),
+                                            Center(
+                                              child: Wrap(children: [
+                                                Text(
+                                                    "${futureDate['explanation1']}",
+                                                    style: TextStyle(
+                                                      fontSize: 11,
+                                                      letterSpacing: 0.5,
+                                                    ),
+                                                    textWidthBasis:
+                                                        TextWidthBasis.parent),
+                                              ]),
+                                            ),
+                                          ],
                                         ),
-                                      )
-                                    ]),
-                              ),
+                                      ),
+                                    )
+                                  ]),
                             ),
                           ),
                           //술추천 2
@@ -137,15 +147,17 @@ class resultDrink extends StatelessWidget {
                               margin: EdgeInsets.fromLTRB(5, 30, 5, 30),
                               padding: EdgeInsets.only(left: 10, right: 10),
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black),
+                                border: Border.all(color: Colors.grey.shade500),
                               ),
                               child: Container(
                                 height: 100,
                                 margin: EdgeInsets.fromLTRB(6, 0, 6, 0),
                                 decoration: BoxDecoration(
                                   border: Border(
-                                      left: BorderSide(color: Colors.black),
-                                      right: BorderSide(color: Colors.black)),
+                                      left: BorderSide(
+                                          color: Colors.grey.shade500),
+                                      right: BorderSide(
+                                          color: Colors.grey.shade500)),
                                 ),
                                 child: Row(
                                     mainAxisAlignment:
@@ -194,15 +206,16 @@ class resultDrink extends StatelessWidget {
                           SizedBox(
                             height: 20,
                           ),
-                          SizedBox(
-                            child: Container(
-                              width: 500,
-                              height: 250,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black87),
-                              ),
-                              child: ResultMusic(mbti: mbti.toUpperCase()),
+                          Container(
+                            width: 500,
+                            height: 250,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey.shade400),
+                              borderRadius: BorderRadius.circular(
+                                  20), // 숫자는 원하는 둥근 정도에 따라 조절하세요.
                             ),
+                            child: ClipRRect(borderRadius: BorderRadius.circular(20),
+                                child: ResultMusic(mbti: mbti.toUpperCase())),
                           ),
                         ],
                       ),

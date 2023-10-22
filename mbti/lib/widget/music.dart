@@ -3,10 +3,15 @@ import 'dart:convert';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'dart:ui_web' as ui;
+
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 void main() {
-  runApp(MaterialApp(home: ResultMusic()));
+  runApp(MaterialApp(
+      home: ResultMusic(
+    mbti: "INFP",
+  )));
 }
 
 class ResultMusic extends StatefulWidget {
@@ -73,12 +78,10 @@ class _ResultMusicState extends State<ResultMusic> {
     // TODO: implement initState
     super.initState();
     loadJsonData();
-    
   }
 
   @override
   void dispose() {
-    // 페이지가 dispose 될 때 YoutubePlayerController 정리
     if (_controller != null) {
       _controller.close();
     }
@@ -89,7 +92,6 @@ class _ResultMusicState extends State<ResultMusic> {
   @override
   Widget build(BuildContext context) {
     String? videoId = playlist["${widget.mbti}"];
-    print("videoId  :" + videoId.toString());
 
     return Scaffold(
       body: Container(
@@ -103,6 +105,7 @@ class _ResultMusicState extends State<ResultMusic> {
                     child: YoutubePlayer(
                       controller: youtue(parsedJson!['${widget.mbti}']['url']),
                       aspectRatio: 16 / 9,
+                      
                     ),
                   ),
                   Padding(

@@ -22,6 +22,13 @@ class _resultState extends State<result> {
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    // Create an animation to move the light effect diagonally
+  }
+
+  @override
   Widget build(BuildContext context) {
     String mbtiResult = widget.mbtiResult;
     return Scaffold(
@@ -34,7 +41,6 @@ class _resultState extends State<result> {
                 borderRadius: BorderRadius.all(Radius.circular(30))),
           ),
           onPressed: () {
-            dispose();
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MainPage()));
           },
