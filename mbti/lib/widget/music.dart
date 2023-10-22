@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:ui_web' as ui;
@@ -16,7 +17,7 @@ void main() {
 
 class ResultMusic extends StatefulWidget {
   const ResultMusic({super.key, this.mbti});
-  final mbti;
+  final dynamic mbti;
 
   @override
   State<ResultMusic> createState() => _ResultMusicState();
@@ -63,10 +64,10 @@ class _ResultMusicState extends State<ResultMusic> {
   }
 
   late YoutubePlayerController _controller;
-  youtue(String mbtiURl) {
+  youtube(String mbtiURl) {
     _controller = YoutubePlayerController.fromVideoId(
       videoId: mbtiURl,
-      params: YoutubePlayerParams(
+      params: const YoutubePlayerParams(
         showFullscreenButton: true,
       ),
     );
@@ -75,7 +76,6 @@ class _ResultMusicState extends State<ResultMusic> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     loadJsonData();
   }
@@ -99,11 +99,11 @@ class _ResultMusicState extends State<ResultMusic> {
             ? null
             : Column(
                 children: [
-                  Container(
+                  SizedBox(
                     width: double.infinity,
                     height: 150,
                     child: YoutubePlayer(
-                      controller: youtue(parsedJson!['${widget.mbti}']['url']),
+                      controller: youtube(parsedJson!['${widget.mbti}']['url']),
                       aspectRatio: 16 / 9,
                       
                     ),

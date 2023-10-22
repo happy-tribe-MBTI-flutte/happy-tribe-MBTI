@@ -1,8 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:html';
-
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -15,16 +14,16 @@ import '../widget/trvel_img_slider.dart';
 //   runApp(resultTravel());
 // }
 
-class resultTravel extends StatelessWidget {
-  const resultTravel({super.key, this.mbti});
-  final mbti;
+class ResultTravel extends StatelessWidget {
+  const ResultTravel({super.key, this.mbti});
+  final dynamic mbti;
 
   @override
   Widget build(BuildContext context) {
     MbtiTravel mbtiModel;
-    var selectedMBTI;
+    dynamic selectedMBTI;
 
-    Future MbtiJsonDecode() async {
+    Future mbtiJsonDecode() async {
       String data = await rootBundle
           .loadString('travel_assets/travel_json/new_travel.json');
       selectedMBTI = jsonDecode(data);
@@ -34,7 +33,9 @@ class resultTravel extends StatelessWidget {
 
         return mbtiModel;
       } else {
-        print("실패");
+        if (kDebugMode) {
+          print("실패");
+        }
 
         return null;
       }
@@ -54,7 +55,7 @@ class resultTravel extends StatelessWidget {
     );
 
     return FutureBuilder(
-      future: MbtiJsonDecode(),
+      future: mbtiJsonDecode(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(

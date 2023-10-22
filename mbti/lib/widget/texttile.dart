@@ -18,11 +18,11 @@ class _TextTileState extends State<TextTile> {
   @override
   Widget build(BuildContext context) {
     @override
-    final Uri _url = Uri.parse(widget.git);
+    final Uri url = Uri.parse(widget.git);
 
-    Future<void> _launchUrl() async {
-      if (!await launchUrl(_url)) {
-        throw Exception('Could not launch $_url');
+    Future<void> launchUrls() async {
+      if (!await launchUrl(url)) {
+        throw Exception('Could not launch $url');
       }
     }
 
@@ -35,7 +35,7 @@ class _TextTileState extends State<TextTile> {
         title: Text(widget.name),
         subtitle: Text(widget.git),
         onTap: () {
-          _launchUrl();
+          launchUrls();
         },
       ),
     );

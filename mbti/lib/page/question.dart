@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mbti/page/main_page.dart';
 import 'package:mbti/page/result.dart';
 
@@ -135,12 +136,17 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             child: Center(
-                              child: Text(
-                                currentQuestion['question'],
-                                style: TextStyle(
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w900),
-                                textAlign: TextAlign.center,
+                              child: Container(
+                                constraints: BoxConstraints(
+                                  minHeight: 80.0, // 최소 높이를 원하는 값으로 설정
+                                ),
+                                child: Text(
+                                  currentQuestion['question'],
+                                  style: GoogleFonts.jua(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
                             ),
                           ),
@@ -148,50 +154,67 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
                           SizedBox(
                             height: 70,
                             child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color(0xFFF5F5F5),
-                                  surfaceTintColor: Color(0xFFF5F5F5),
-                                  foregroundColor: Color(0xFFF6D7FF),
-                                  side: const BorderSide(
-                                    width: 1.0,
-                                    color: Color(0xFF908F8F),
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.resolveWith(
+                                          (Set<MaterialState> states) {
+                                    if (states
+                                        .contains(MaterialState.pressed)) {
+                                      return const Color.fromARGB(
+                                          221, 253, 166, 252);
+                                    }
+                                    return const Color.fromARGB(
+                                        247, 160, 150, 235);
+                                  }),
+                                  foregroundColor:
+                                      MaterialStateProperty.resolveWith(
+                                          (Set<MaterialState> states) {
+                                    if (states
+                                        .contains(MaterialState.pressed)) {
+                                      return Colors.white;
+                                    }
+                                  }),
                                 ),
                                 onPressed: () {
                                   _onOptionSelected('a');
                                 },
                                 child: Text(
                                   'A. ${options['a']}',
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 14),
+                                  style: GoogleFonts.jua(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500),
                                 )),
                           ),
                           SizedBox(height: 10.0),
                           SizedBox(
                             height: 70,
                             child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFFF5F5F5),
-                                surfaceTintColor: Color(0xFFF5F5F5),
-                                foregroundColor: Color(0xFFF6D7FF),
-                                side: const BorderSide(
-                                  width: 1.0,
-                                  color: Color(0xFF908F8F),
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.resolveWith(
+                                        (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return const Color.fromARGB(
+                                        221, 253, 166, 252);
+                                  }
+                                  return const Color.fromARGB(
+                                      247, 160, 150, 235);
+                                }),
+                                foregroundColor:
+                                    MaterialStateProperty.resolveWith(
+                                        (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return Colors.white;
+                                  }
+                                }),
                               ),
                               onPressed: () {
                                 _onOptionSelected('b');
                               },
                               child: Text(
                                 'B. ${options['b']}',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 14),
+                                style: GoogleFonts.jua(
+                                    fontSize: 18, fontWeight: FontWeight.w500),
                               ),
                             ),
                           ),
@@ -200,18 +223,34 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
                             child: Container(
                               width: 100,
                               child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Color(0xFFF5F5F5),
-                                    surfaceTintColor: Color(0xFFF5F5F5),
-                                    foregroundColor: Color(0xFFF6D7FF),
-                                    side: const BorderSide(
-                                      width: 1.0,
-                                      color: Color(0xFF908F8F),
+                                  style: ButtonStyle(
+                                    shape: MaterialStateProperty.resolveWith(
+                                      (Set<MaterialState> states) {
+                                        return RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                              20.0), // 원하는 모서리 반지름 값으로 설정
+                                        );
+                                      },
                                     ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    minimumSize: Size(double.infinity, 40.0),
+                                    backgroundColor:
+                                        MaterialStateProperty.resolveWith(
+                                            (Set<MaterialState> states) {
+                                      if (states
+                                          .contains(MaterialState.pressed)) {
+                                        return const Color.fromARGB(
+                                            221, 253, 166, 252);
+                                      }
+                                      return const Color.fromARGB(
+                                          247, 160, 150, 235);
+                                    }),
+                                    foregroundColor:
+                                        MaterialStateProperty.resolveWith(
+                                            (Set<MaterialState> states) {
+                                      if (states
+                                          .contains(MaterialState.pressed)) {
+                                        return Colors.white;
+                                      }
+                                    }),
                                   ),
                                   onPressed: () {
                                     if (currentQuestionIndex == 0) {
@@ -227,7 +266,7 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
                                   },
                                   child: Icon(
                                     Icons.arrow_back,
-                                    color: Colors.black,
+                                    color: Colors.white,
                                   )),
                             ),
                           ),
@@ -341,7 +380,7 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => result(mbtiResult: mbtiResult),
+          builder: (context) => Result(mbtiResult: mbtiResult),
         ),
       );
     } else {

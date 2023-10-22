@@ -8,10 +8,10 @@ class GithubPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future<void> _launchUrl(String _url) async {
-      final Uri geturl = Uri.parse(_url);
+    Future<void> launchUrls(String url) async {
+      final Uri geturl = Uri.parse(url);
       if (!await launchUrl(geturl)) {
-        throw Exception('Could not launch $_url');
+        throw Exception('Could not launch $url');
       }
     }
 
@@ -21,14 +21,14 @@ class GithubPage extends StatelessWidget {
         child: Container(
           width: 390,
           height: 844,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               color: Color.fromARGB(221, 253, 166, 252),
               image: DecorationImage(
                   image: AssetImage('page_img/m_img.png'), fit: BoxFit.cover)),
           child: Column(
             children: [
               AppBar(
-                iconTheme: IconThemeData(
+                iconTheme: const IconThemeData(
                   color: Colors.black, size: 40,
                   //색변경
                 ),
@@ -37,48 +37,49 @@ class GithubPage extends StatelessWidget {
               ),
               Expanded(
                 child: ListView(
-                    padding: EdgeInsetsDirectional.only(start: 80 , end: 60  ),
+                    padding:
+                        const EdgeInsetsDirectional.only(start: 80, end: 60),
                     children: [
                       Center(
                         child: Padding(
-                          padding: const EdgeInsets.only( bottom: 20),
+                          padding: const EdgeInsets.only(bottom: 20),
                           child: Column(
                             children: [
                               Text("MAKERS",
                                   style: GoogleFonts.anton(fontSize: 50)),
                               TextButton(
                                   onPressed: () {
-                                    _launchUrl(
+                                    launchUrls(
                                         'https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI');
                                   },
-                                  child: Text('8vengers Organizations'))
+                                  child: const Text('8vengers Organizations'))
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(height: 70),
-                      TextTile(
+                      const SizedBox(height: 70),
+                      const TextTile(
                         name: "조영",
                         git: "https://github.com/gitjoyoung",
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      TextTile(
+                      const TextTile(
                         name: "오정현",
                         git: "https://github.com/jeonghyun77",
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      TextTile(
+                      const TextTile(
                         name: "임동욱",
                         git: "https://github.com/dongwook1179",
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      TextTile(
+                      const TextTile(
                         name: "손성민",
                         git: "https://github.com/sungmmmm",
                       ),

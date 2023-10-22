@@ -1,28 +1,30 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:mbti/widget/music.dart';
-import 'package:motion/motion.dart';
+// import 'package:motion/motion.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() {
-  runApp(MaterialApp(home: resultDrink()));
-}
+// void main() {
+//   runApp(MaterialApp(home: ResultDrink()));
+// }
 
-class resultDrink extends StatelessWidget {
-  const resultDrink({
+class ResultDrink extends StatelessWidget {
+  const ResultDrink({
     super.key,
     this.mbti,
   });
-  final mbti;
+  final dynamic mbti;
 
   @override
   Widget build(BuildContext context) {
-    print("mbti : " + mbti);
-    var selectedMBTI;
+    if (kDebugMode) {
+      print("mbti: $mbti");
+    }
 
-    Future MbtiJsonDecode() async {
+    Future mbtiJsonDecode() async {
       String data = await rootBundle.loadString('drink_img/drink.json');
-      selectedMBTI = jsonDecode(data);
+      var selectedMBTI = jsonDecode(data);
       if (selectedMBTI != null) {
         selectedMBTI = selectedMBTI["${mbti.toUpperCase()}"];
         print(selectedMBTI.keys);
@@ -33,10 +35,10 @@ class resultDrink extends StatelessWidget {
     }
 
     return FutureBuilder(
-      future: MbtiJsonDecode(),
+      future: mbtiJsonDecode(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         } else if (snapshot.hasError) {
           return Text('에러 Error: ${snapshot.error}');
         } else {
@@ -63,7 +65,7 @@ class resultDrink extends StatelessWidget {
                     ),
                   ),
                   child: Card(
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30)),
                     child: Padding(
@@ -101,7 +103,7 @@ class resultDrink extends StatelessWidget {
                               ),
                               child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Image.network(
                                       futureDate['img1'],
@@ -144,14 +146,15 @@ class resultDrink extends StatelessWidget {
                           SizedBox(
                             width: 390,
                             child: Container(
-                              margin: EdgeInsets.fromLTRB(5, 30, 5, 30),
-                              padding: EdgeInsets.only(left: 10, right: 10),
+                              margin: const EdgeInsets.fromLTRB(5, 30, 5, 30),
+                              padding:
+                                  const EdgeInsets.only(left: 10, right: 10),
                               decoration: BoxDecoration(
                                 border: Border.all(color: Colors.grey.shade500),
                               ),
                               child: Container(
                                 height: 100,
-                                margin: EdgeInsets.fromLTRB(6, 0, 6, 0),
+                                margin: const EdgeInsets.fromLTRB(6, 0, 6, 0),
                                 decoration: BoxDecoration(
                                   border: Border(
                                       left: BorderSide(
@@ -161,7 +164,7 @@ class resultDrink extends StatelessWidget {
                                 ),
                                 child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Image.network(
                                         futureDate['img2'],
@@ -198,12 +201,12 @@ class resultDrink extends StatelessWidget {
                                             ],
                                           ),
                                         ),
-                                      )
+                                      ),
                                     ]),
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Container(
@@ -214,7 +217,8 @@ class resultDrink extends StatelessWidget {
                               borderRadius: BorderRadius.circular(
                                   20), // 숫자는 원하는 둥근 정도에 따라 조절하세요.
                             ),
-                            child: ClipRRect(borderRadius: BorderRadius.circular(20),
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
                                 child: ResultMusic(mbti: mbti.toUpperCase())),
                           ),
                         ],
