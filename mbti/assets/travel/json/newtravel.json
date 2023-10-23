@@ -2,8 +2,8 @@
   "INFJ": {
     "title": "열정적인 여행가",
     "img": [
-      "travel_assets/travel_img/infj.jpeg",
-      "travel_assets/travel_img/infj2.jpg"
+      "assets/travel/image/infj.jpeg",
+      "assets/travel/image/infj2.jpg"
     ],
     "explanation": "INFJ 열정적이고 사색적인 성향으로, 철학적인 장소와 학문적인 환경에서 여행을 즐깁니다",
     "Overseas": "산토리니",
@@ -14,8 +14,8 @@
   "INFP": {
     "title": "자유로운 예술가",
     "img": [
-      "travel_assets/travel_img/infp.jpeg",
-      "travel_assets/travel_img/infp2.jpg"
+      "assets/travel/image/infp.jpeg",
+      "assets/travel/image/infp2.jpg"
     ],
     "explanation": "INFP 열정적이고 중재적인 성향으로, 아름다운 풍경과 예술이 어울리는 여행지가 좋습니다.",
     "Overseas": "발리",
@@ -26,8 +26,8 @@
   "INTP": {
     "title": "사색가",
     "img": [
-      "travel_assets/travel_img/intp.jpeg",
-      "travel_assets/travel_img/intp2.jpg"
+      "assets/travel/image/intp.jpeg",
+      "assets/travel/image/intp2.jpg"
     ],
     "explanation": "INTP 논리적이고 사색적인 유형으로, 학문적인 환경과 철학적인 장소가 어울립니다.",
     "Overseas": "스웨덴",
@@ -38,8 +38,8 @@
   "INTJ": {
     "title": "지적인 탐구자",
     "img": [
-      "travel_assets/travel_img/intj.jpeg",
-      "travel_assets/travel_img/intj2.jpg"
+      "assets/travel/image/intj.jpeg",
+      "assets/travel/image/intj2.jpg"
     ],
     "explanation": "INTJ 지적이고 논리적인 유형으로, 과학적 탐구와 문화적인 경험을 추구합니다.",
     "Overseas": "런던",
@@ -50,8 +50,8 @@
   "ISTJ": {
     "title": "성실한 탐험가",
     "img": [
-      "travel_assets/travel_img/istj.jpg",
-      "travel_assets/travel_img/istj2.jpg"
+      "assets/travel/image/istj.jpg",
+      "assets/travel/image/istj2.jpg"
     ],
     "explanation": "ISTJ 성실하고 안정을 추구하는 유형으로, 역사적인 관심을 가진 도시나 자연 경관이 어울립니다.",
     "Overseas": "교토",
@@ -62,8 +62,8 @@
   "ISFJ": {
     "title": "자연 친구",
     "img": [
-      "travel_assets/travel_img/isfj.jpeg",
-      "travel_assets/travel_img/isfj2.jpg"
+      "assets/travel/image/isfj.jpeg",
+      "assets/travel/image/isfj2.jpg"
     ],
     "explanation": "ISFJ 다정하고 자연을 즐기는 유형으로, 자연 경관과 평화로운 여행지가 어울립니다.",
     "Overseas": "스위스",
@@ -74,8 +74,8 @@
   "ISTP": {
     "title": "모험가",
     "img": [
-      "travel_assets/travel_img/istp.jpeg",
-      "travel_assets/travel_img/istp2.jpg"
+      "assets/travel/image/istp.jpeg",
+      "assets/travel/image/istp2.jpg"
     ],
     "explanation": "ISTP 모험적이고 스포츠를 즐기는 유형으로, 액티비티가 풍부한 지역이 어울립니다.",
     "Overseas": "아이슬란드",
@@ -86,8 +86,8 @@
   "ISFP": {
     "title": "예술가",
     "img": [
-      "travel_assets/travel_img/isfp.jpeg",
-      "travel_assets/travel_img/isfp2.jpg"
+      "assets/travel/image/isfp.jpeg",
+      "assets/travel/image/isfp2.jpg"
     ],
     "explanation": "ISFP 감각적이고 예술적인 유형으로, 예술과 자연을 함께 즐길 수 있는 장소가 어울립니다.",
     "Overseas": "덴마크",
@@ -98,8 +98,8 @@
   "ESTP": {
     "title": "스릴 즐기는 여행객",
     "img": [
-      "travel_assets/travel_img/estp.jpeg",
-      "travel_assets/travel_img/estp2.jpg"
+      "assets/travel/image/estp.jpeg",
+      "assets/travel/image/estp2.jpg"
     ],
     "explanation": "ESTP 모험을 즐기는 유형으로, 스릴과 액티비티가 풍부한 지역이 어울립니다.",
     "Overseas": "뉴질랜드",
@@ -110,8 +110,8 @@
   "ESFJ": {
     "title": "친절한 여행객",
     "img": [
-      "travel_assets/travel_img/esfj.jpeg",
-      "travel_assets/travel_img/esfj2.jpg"
+      "assets/travel/image/esfj.jpeg",
+      "assets/travel/image/esfj2.jpg"
     ],
     "explanation": "ESFJ 자유로운 영혼을 가진 유형으로, 축제와 엔터테인먼트가 풍부한 도시나 해변이 어울립니다.",
     "Overseas": "발리",
@@ -123,8 +123,8 @@
   "ESFP": {
     "title": "재미있는 여행가",
     "img": [
-      "travel_assets/travel_img/esfp.jpeg",
-      "travel_assets/travel_img/esfp2.jpg"
+      "assets/travel/image/esfp.jpeg",
+      "assets/travel/image/esfp2.jpg"
     ],
     "explanation": "ESFP 자유로운 영혼을 가진 유형으로, 축제와 엔터테인먼트가 풍부한 도시나 해변이 어울립니다.",
     "Overseas": "리우데자네이루",
@@ -135,8 +135,8 @@
   "ESTJ": {
     "title": "활동적인 여행객",
     "img": [
-      "travel_assets/travel_img/estj2.jpg",
-      "travel_assets/travel_img/estj.jpeg"
+      "assets/travel/image/estj2.jpg",
+      "assets/travel/image/estj.jpeg"
     ],
     "explanation": "ESTJ 원하는 것을 확실히 아는 성격으로, 역사적인 도시와 비즈니스 관련 여행이 어울립니다.",
     "Overseas": "런던",
@@ -148,8 +148,8 @@
   "ENFP": {
     "title": "재미있는 여행가",
     "img": [
-      "travel_assets/travel_img/enfp2.jpeg",
-      "travel_assets/travel_img/enfp.jpg"
+      "assets/travel/image/enfp2.jpeg",
+      "assets/travel/image/enfp.jpg"
     ],
     "explanation": "ENFP 재기발랄하고 예술적인 성향을 가진 유형으로, 다양한 문화와 예술 행사가 열리는 장소가 어울립니다.",
     "Overseas": "라오스",
@@ -160,8 +160,8 @@
   "ENTP": {
     "title": "창의적인 여행객",
     "img": [
-      "travel_assets/travel_img/entp2.jpg",
-      "travel_assets/travel_img/entp.jpeg"
+      "assets/travel/image/entp2.jpg",
+      "assets/travel/image/entp.jpeg"
     ],
     "explanation": "ENTP 창의적이고 논쟁을 즐기는 유형으로, 혁신과 문화적 다양성을 추구하는 도시가 어울립니다.",
     "Overseas": "상하이",
@@ -172,8 +172,8 @@
   "ENFJ": {
     "title": "열정적인 탐험가",
     "img": [
-      "travel_assets/travel_img/enfj.jpeg",
-      "travel_assets/travel_img/enfj2.jpg"
+      "assets/travel/image/enfj.jpeg",
+      "assets/travel/image/enfj2.jpg"
     ],
     "explanation": "ENFJ 열정적이고 다정한 성격으로, 문화적 경험이 풍부한 도시나 자연 경관이 어울립니다.",
     "Overseas": "파리",
@@ -184,8 +184,8 @@
   "ENTJ": {
     "title": "리더십을 강조하는 여행객",
     "img": [
-      "travel_assets/travel_img/entj.jpeg",
-      "travel_assets/travel_img/entj2.jpg"
+      "assets/travel/image/entj.jpeg",
+      "assets/travel/image/entj2.jpg"
     ],
     "explanation": "ENTJ 도전적이고 리더십을 강조하는 성격으로, 활동적인 여행이나 아웃도어 경험이 필요한 곳이 어울립니다.",
     "Overseas": "아이슬란드",
@@ -196,9 +196,9 @@
   "TEST": {
     "title": "MBTI 유형",
     "img": [
-      "travel_assets/travel_img/test2.jpg",
+      "assets/travel/image/test2.jpg",
 
-      "travel_assets/travel_img/test.jpg"
+      "assets/travel/image/test.jpg"
     ],
     "explanation": "이곳은 MBTI 유형의 추천 여행지의 추천이유가 들어가게 됩니다!.",
     "Overseas": "화성",

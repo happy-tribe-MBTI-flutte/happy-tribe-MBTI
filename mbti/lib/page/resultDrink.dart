@@ -23,7 +23,7 @@ class ResultDrink extends StatelessWidget {
     }
 
     Future mbtiJsonDecode() async {
-      String data = await rootBundle.loadString('drink_img/drink.json');
+      String data = await rootBundle.loadString('assets/drink/drink.json');
       var selectedMBTI = jsonDecode(data);
       if (selectedMBTI != null) {
         selectedMBTI = selectedMBTI["${mbti.toUpperCase()}"];

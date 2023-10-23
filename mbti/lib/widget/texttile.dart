@@ -31,7 +31,7 @@ class _TextTileState extends State<TextTile> {
       child: ListTile(
         tileColor: Colors.white,
         // textColor: Colors.white,
-        leading: Image.asset("main/github.png"),
+        leading: Image.asset("assets/main/github.png"),
         title: Text(widget.name),
         subtitle: Text(widget.git),
         onTap: () {

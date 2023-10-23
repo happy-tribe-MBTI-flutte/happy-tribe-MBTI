@@ -59,15 +59,15 @@ flutter:
   assets:
     - assets/
     - assets/audios/
-    - assets/drink_img/
-    - assets/github_assets/
+    - assets/drink/
+    - assets/github/
     - assets/main/
     - assets/music/
-    - assets/page_img/
-    - assets/question_img/
-    - assets/travel_assets/
-    - assets/travel_assets/travel_img/
-    - assets/travel_assets/travel_json/
+    - assets/page/
+    - assets/question/
+    - assets/travel/
+    - assets/travel/image/
+    - assets/travel/json/
 
    
 

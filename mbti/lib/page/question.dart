@@ -68,7 +68,7 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('/page_img/m_img.png'),
+                image: AssetImage('assets/page/mimg.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -101,7 +101,7 @@ class _MBTIQuestionPageState extends State<MBTIQuestionPage> {
                             child: Container(
                               margin: EdgeInsets.fromLTRB(0, 0, 0, 5),
                               child: Image.asset(
-                                '/question_img/plane.png', // 이미지 파일 경로에 맞게 수정해야 함
+                                'assets/question/plane.png', // 이미지 파일 경로에 맞게 수정해야 함
                                 width: 220, // 이미지의 너비
                                 height: 220, // 이미지의 높이
                               ),

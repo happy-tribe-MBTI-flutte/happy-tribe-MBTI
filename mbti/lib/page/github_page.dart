@@ -24,7 +24,7 @@ class GithubPage extends StatelessWidget {
           decoration: const BoxDecoration(
               color: Color.fromARGB(221, 253, 166, 252),
               image: DecorationImage(
-                  image: AssetImage('page_img/m_img.png'), fit: BoxFit.cover)),
+                  image: AssetImage('assets/page/mimg.png'), fit: BoxFit.cover)),
           child: Column(
             children: [
               AppBar(

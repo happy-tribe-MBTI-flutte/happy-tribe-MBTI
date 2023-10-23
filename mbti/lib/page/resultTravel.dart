@@ -25,7 +25,7 @@ class ResultTravel extends StatelessWidget {
 
     Future mbtiJsonDecode() async {
       String data = await rootBundle
-          .loadString('travel_assets/travel_json/new_travel.json');
+          .loadString('assets/travel/json/newtravel.json');
       selectedMBTI = jsonDecode(data);
 
       if (selectedMBTI != null) {
@@ -149,7 +149,7 @@ class ResultTravel extends StatelessWidget {
                                   Image(
                                       alignment: Alignment.center,
                                       image:
-                                          AssetImage('page_img/airplane.png'),
+                                          AssetImage('assets/page/airplane.png'),
                                       fit: BoxFit.contain),
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -184,7 +184,7 @@ class ResultTravel extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          height: 240,
+                          height: 180,
                           margin: EdgeInsets.all(8),
                           child: Center(
                               child: Card(elevation: 5,

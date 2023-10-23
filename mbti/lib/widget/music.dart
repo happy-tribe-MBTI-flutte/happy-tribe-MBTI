@@ -57,7 +57,7 @@ class _ResultMusicState extends State<ResultMusic> {
 
   Future<void> loadJsonData() async {
     final String jsonData =
-        await rootBundle.loadString('music/music_data.json');
+        await rootBundle.loadString('assets/music/musicdata.json');
     parsedJson = json.decode(jsonData);
 
     setState(() {});

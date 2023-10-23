@@ -25,7 +25,7 @@ class _MainPageState extends State<MainPage> {
           height: 844,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('page_img/m_img.png'),
+              image: AssetImage('assets/page/mimg.png'),
               fit: BoxFit.cover,
             ),
           ),
@@ -53,7 +53,7 @@ class _MainPageState extends State<MainPage> {
                     radius: 30,
                     backgroundColor: Colors.transparent,
                     child: Image.asset(
-                      "main/github.png",
+                      "assets/main/github.png",
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -65,13 +65,14 @@ class _MainPageState extends State<MainPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                
                     AudioWidget.assets(
                       onFinished: () {
                         setState(() {
                           _play = false;
                         });
                       },
-                      path: 'audios/background.mp3',
+                      path: 'assets/audios/background.mp3',
                       play: _play,
                       child: IconButton(
                         onPressed: () {
