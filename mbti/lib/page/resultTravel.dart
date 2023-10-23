@@ -89,7 +89,7 @@ class ResultTravel extends StatelessWidget {
                   child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Center(
                           child: Container(
@@ -184,7 +184,7 @@ class ResultTravel extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          height: 180,
+                          height: 240,
                           margin: EdgeInsets.all(8),
                           child: Center(
                               child: Card(elevation: 5,
@@ -196,7 +196,7 @@ class ResultTravel extends StatelessWidget {
                                   Text(
                                     futureDate.expl,
                                     overflow: TextOverflow.ellipsis,
-                                    maxLines: 5,
+                                    maxLines: 7,
                                   ),
                                   if (futureDate.expl.length > 15)
                                     Padding(

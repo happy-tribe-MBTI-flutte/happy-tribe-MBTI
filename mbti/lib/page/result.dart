@@ -80,35 +80,9 @@ class _ResultState extends State<Result> with SingleTickerProviderStateMixin {
                 .fillBack, // Fill the back side of the card to make in the same size as the front.
             direction: FlipDirection.HORIZONTAL, // default
             side: CardSide.FRONT, // The side to initially display.
-            front: Stack(children: [
-              ResultTravel(
-                mbti: mbtiResult,
-              ),
-              Positioned(
-                child: Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        stops: [
-                          position - 0.1,
-                          position,
-                          position + 0.1,
-                          position + 0.1,
-                        ],
-                        colors: [
-                          const Color.fromARGB(0, 255, 255, 255),
-                          Color.fromARGB(255, 255, 251, 45),
-                          Color.fromARGB(183, 255, 225, 56),
-                          Color.fromARGB(183, 255, 255, 255),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              )
-            ]),
+            front: ResultTravel(
+              mbti: mbtiResult,
+            ),
             back: ResultDrink(mbti: mbtiResult),
           ),
         ),

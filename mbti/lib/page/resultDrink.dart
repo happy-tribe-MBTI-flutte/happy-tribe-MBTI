@@ -242,14 +242,7 @@ class ResultDrink extends StatelessWidget {
               ),
             ),
 
-            // floatingActionButton: FloatingActionButton.extended(
-            //   onPressed: () {
-
-            //   },
-            //   label: const Text('다시 테스트 하기', style: TextStyle(color: Colors.yellow),),
-            //   backgroundColor: Color.fromARGB(255, 55, 55, 55),
-            // ),
-            // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    
           );
         }
       },
