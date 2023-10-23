@@ -38,7 +38,10 @@ class ResultDrink extends StatelessWidget {
       future: mbtiJsonDecode(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator();
+          return Center(
+              child: CircularProgressIndicator(
+            color: Colors.amber,
+          ));
         } else if (snapshot.hasError) {
           return Text('에러 Error: ${snapshot.error}');
         } else {
@@ -57,9 +60,8 @@ class ResultDrink extends StatelessWidget {
                       end: Alignment.bottomRight,
                       stops: [0.1, 1, -0.1],
                       colors: [
-                        Color.fromARGB(227, 255, 117,
-                            214), // Use the custom gold color here
                         Colors.yellowAccent.shade100,
+                        Color.fromARGB(227, 255, 117, 214),
                         Color.fromARGB(255, 252, 251, 247),
                       ],
                     ),
@@ -108,7 +110,7 @@ class ResultDrink extends StatelessWidget {
                                     Image.network(
                                       futureDate['img1'],
                                       width: 120,
-                                      height: 120,
+                                      height: 110,
                                       fit: BoxFit.fill,
                                     ),
                                     Padding(
@@ -150,12 +152,14 @@ class ResultDrink extends StatelessWidget {
                               padding:
                                   const EdgeInsets.only(left: 10, right: 10),
                               decoration: BoxDecoration(
+                          
                                 border: Border.all(color: Colors.grey.shade500),
                               ),
                               child: Container(
                                 height: 100,
                                 margin: const EdgeInsets.fromLTRB(6, 0, 6, 0),
                                 decoration: BoxDecoration(
+                           
                                   border: Border(
                                       left: BorderSide(
                                           color: Colors.grey.shade500),
@@ -169,7 +173,7 @@ class ResultDrink extends StatelessWidget {
                                       Image.network(
                                         futureDate['img2'],
                                         width: 120,
-                                        height: 120,
+                                        height: 110,
                                         fit: BoxFit.fill,
                                       ),
                                       Padding(
@@ -214,6 +218,15 @@ class ResultDrink extends StatelessWidget {
                             height: 250,
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey.shade400),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey
+                                      .withOpacity(0.5), // 그림자 색상 및 투명도
+                                  spreadRadius: 5, // 그림자 확산 반경
+                                  blurRadius: 7, // 그림자의 흐림 정도
+                                  offset: Offset(0, 5), // 그림자 위치 (수평, 수직)
+                                ),
+                              ],
                               borderRadius: BorderRadius.circular(
                                   20), // 숫자는 원하는 둥근 정도에 따라 조절하세요.
                             ),

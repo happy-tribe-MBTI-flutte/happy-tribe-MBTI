@@ -12,7 +12,7 @@ class Result extends StatefulWidget {
   State<Result> createState() => _ResultState();
 }
 
-class _ResultState extends State<Result> {
+class _ResultState extends State<Result> with SingleTickerProviderStateMixin {
   bool a = true;
 
   @override
@@ -20,16 +20,36 @@ class _ResultState extends State<Result> {
     super.dispose();
   }
 
+  late AnimationController controller;
+  double position = 0.5;
+
   @override
   void initState() {
     super.initState();
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 3),
+    );
 
-    // Create an animation to move the light effect diagonally
+    Animation<double> animation =
+        Tween(begin: 0.0, end: 1.1).animate(controller);
+
+    animation.addListener(() {
+      setState(() {
+        position = animation.value;
+      });
+    });
+
+    // 애니메이션을 한 번만 실행하려면 controller를 특정 지점에서 멈추도록 설정
+    controller.forward().whenComplete(() {
+      controller.stop();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     String mbtiResult = widget.mbtiResult;
+
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: ElevatedButton(
@@ -60,9 +80,35 @@ class _ResultState extends State<Result> {
                 .fillBack, // Fill the back side of the card to make in the same size as the front.
             direction: FlipDirection.HORIZONTAL, // default
             side: CardSide.FRONT, // The side to initially display.
-            front: ResultTravel(
-              mbti: mbtiResult,
-            ),
+            front: Stack(children: [
+              ResultTravel(
+                mbti: mbtiResult,
+              ),
+              Positioned(
+                child: Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        stops: [
+                          position - 0.1,
+                          position,
+                          position + 0.1,
+                          position + 0.1,
+                        ],
+                        colors: [
+                          const Color.fromARGB(0, 255, 255, 255),
+                          Color.fromARGB(255, 255, 251, 45),
+                          Color.fromARGB(183, 255, 225, 56),
+                          Color.fromARGB(183, 255, 255, 255),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ]),
             back: ResultDrink(mbti: mbtiResult),
           ),
         ),

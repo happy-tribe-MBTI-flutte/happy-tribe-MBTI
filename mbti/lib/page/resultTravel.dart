@@ -59,7 +59,7 @@ class ResultTravel extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
-              child: CircularProgressIndicator()); // 데이터 로딩 중인 경우 로딩 스피너 표시
+              child: CircularProgressIndicator(color: Colors.amber,)); // 데이터 로딩 중인 경우 로딩 스피너 표시
         } else if (snapshot.hasError) {
           return Text('에러 Error: ${snapshot.error}');
         } else {
@@ -119,7 +119,7 @@ class ResultTravel extends StatelessWidget {
                           height: 370,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey),
-                              color: Colors.blue),
+                              color: const Color.fromARGB(255, 61, 161, 243)),
                           child: Column(
                             children: [
                               Expanded(
@@ -187,7 +187,7 @@ class ResultTravel extends StatelessWidget {
                           height: 180,
                           margin: EdgeInsets.all(8),
                           child: Center(
-                              child: Card(
+                              child: Card(elevation: 5,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
