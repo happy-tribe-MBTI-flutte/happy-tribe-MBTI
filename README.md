@@ -5,6 +5,8 @@
 ## MBTI 검사 어플리케이션 흥의 민족
 흥이 나는 mbti검사 
 
+## 배포 주소
+https://happymbti.sniperfactory.com/
 
 ### 만든 사람들
 
@@ -19,17 +21,7 @@
 - 각 각의 페이지 요소를 커스텀 위젯으로 분리 하였습니다.
 - MBTI 질문 , 설명 외 추가적인 여행 , 술 , 음악의 데이타를 수집 가공 하였습니다.
 - 그외 데이타는 서버 통신으로 구현하였습니다.
-
-## 시현 영상
-![시현1](https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI/assets/126527025/1be58434-674a-41cf-97d7-f1bf99950d9c)
-  
-![시현2](https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI/assets/126527025/6a52e36e-aa08-4344-842d-7ee19f8c2ccd)
-
-![시현3](https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI/assets/126527025/48fb987e-d075-4477-a7fb-33d955acaf29)
-
-## 피그마
-https://www.figma.com/file/URDOI2OsbigNvs2ORJC3HH?node-id=0:1&locale=en&type=design
-
+- 
 ### 서비스 설명
 
 기존 MBTI 설문을 통해 MBTI 의 성향 조회는 물론! <br>
@@ -41,3 +33,14 @@ https://www.figma.com/file/URDOI2OsbigNvs2ORJC3HH?node-id=0:1&locale=en&type=des
 설문 완료시 골드 티켓이 발권 되며 <br>
 티켓사용처는 추천 여행지에서 사용할 수 있는 숙박, 식사 , 관광지 할인 등으로<br>
 사용 할 수 있게 고려하였습니다.<br>
+
+## 시현 영상
+![시현1](https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI/assets/126527025/1be58434-674a-41cf-97d7-f1bf99950d9c)
+  
+![시현2](https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI/assets/126527025/6a52e36e-aa08-4344-842d-7ee19f8c2ccd)
+
+![시현3](https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI/assets/126527025/48fb987e-d075-4477-a7fb-33d955acaf29)
+
+## 피그마
+https://www.figma.com/file/URDOI2OsbigNvs2ORJC3HH?node-id=0:1&locale=en&type=design
+
