@@ -29,11 +29,14 @@ https://happymbti.sniperfactory.com/
 
 
 ## 시현 영상
-![시현1](https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI/assets/126527025/1be58434-674a-41cf-97d7-f1bf99950d9c)
-  
-![시현2](https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI/assets/126527025/6a52e36e-aa08-4344-842d-7ee19f8c2ccd)
 
-![시현3](https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI/assets/126527025/48fb987e-d075-4477-a7fb-33d955acaf29)
+<div >
+    <img width="200" src="https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI/assets/126527025/1be58434-674a-41cf-97d7-f1bf99950d9c" alt="시현1">
+    <img width="200" src="https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI/assets/126527025/6a52e36e-aa08-4344-842d-7ee19f8c2ccd" alt="시현2">
+    <img width="200" src="https://github.com/happy-tribe-MBTI-project-flutter/happy-tribe-MBTI/assets/126527025/48fb987e-d075-4477-a7fb-33d955acaf29" alt="시현3">
+</div>
+
+
 
 ## 피그마
 https://www.figma.com/file/URDOI2OsbigNvs2ORJC3HH?node-id=0:1&locale=en&type=design
